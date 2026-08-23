@@ -1,0 +1,343 @@
+---
+import Layout from "./Layout.astro";
+import { business, img } from "../data/business";
+import { locations } from "../data/locations";
+import ContactForm from "../components/ContactForm.astro";
+import StatsBar from "../components/StatsBar.astro";
+import Reviews from "../components/Reviews.astro";
+import Guarantee from "../components/Guarantee.astro";
+import NextPage from "../components/NextPage.astro";
+import type { ServiceData } from "../data/services";
+
+interface Props { service: ServiceData }
+const { service } = Astro.props;
+const heroImg = img(service.heroPublicId, 1200);
+const area = business.location;
+
+// Six steps, not the eight most roofing sites run. Each one is a decision point
+// where the customer is told something, which is the point being made.
+const process = [
+  {
+    n: "01",
+    h: "You describe the symptom",
+    p: "Which room, which wall, and does it only happen when the rain comes from a particular direction? That last question narrows things down more than people expect, before anybody has been anywhere near the roof.",
+  },
+  {
+    n: "02",
+    h: "Somebody comes and looks - loft included",
+    p: "Free, with no expectation that it becomes a job. Half the evidence is on the underside of the roof, so the loft gets looked at as a matter of course rather than as a favour.",
+  },
+  {
+    n: "03",
+    h: "You are told the cause before the price",
+    p: "In plain terms, with photographs where they make the point better than words. If you want to take that diagnosis to somebody else for a second quote, that is entirely reasonable.",
+  },
+  {
+    n: "04",
+    h: "A written, itemised price",
+    p: "Access priced as its own line, so it is obvious what you are paying to reach the work as opposed to doing it. The figure on the quote is the figure on the invoice.",
+  },
+  {
+    n: "05",
+    h: "The work, back to something solid",
+    p: "Failed material comes out until there is sound timber and sound masonry underneath. Matched covering, code 4 lead at the junctions, mortar mixed to suit the brick it is going onto.",
+  },
+  {
+    n: "06",
+    h: "Checked, cleared and guaranteed",
+    p: "The details either side get checked while the access is still up, the site is cleared, finished photographs come to you, and the written guarantee is handed over the same day.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: service.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: business.url },
+    { "@type": "ListItem", position: 2, name: service.serviceName, item: `${business.url}${service.slug}` },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: `${service.serviceName} in ${area}`,
+  serviceType: service.serviceName,
+  provider: { "@type": "RoofingContractor", name: business.name, url: business.url },
+  areaServed: [
+    { "@type": "City", name: area },
+    ...locations.map((l) => ({ "@type": "City", name: l.name })),
+  ],
+};
+---
+
+<Layout
+  title={service.metaTitle}
+  description={service.metaDescription}
+  heroImage={heroImg}
+  ogImage={heroImg}
+  schema={[faqSchema, breadcrumbSchema, serviceSchema]}
+>
+  <!-- Hero -->
+  <section class="relative bg-ink text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate via-ink to-ink" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <nav aria-label="Breadcrumb" class="text-xs text-steel-light/60">
+          <a href="/" class="hover:text-brand-light">Home</a>
+          <span class="mx-2 text-steel">/</span>
+          <span class="text-steel-light">{service.serviceName}</span>
+        </nav>
+        <p class="mt-4 inline-flex items-center rounded-full border border-brand/50 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-light">
+          {service.serviceName} · Croydon &amp; the CR postcodes
+        </p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
+          <a href="/" class="text-white hover:text-brand-light transition-colors">{service.h1}</a>
+        </h1>
+        <h2 class="mt-4 text-xl font-semibold text-brand-light">{service.h2}</h2>
+        <h3 class="mt-3 text-lg font-semibold text-steel-light">{service.h3}</h3>
+        <p class="mt-6 text-lg text-steel-light">{service.intro}</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+            Call {business.phone}
+          </a>
+          <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+            Book A Free Look
+          </a>
+        </div>
+      </div>
+      <div>
+        <img
+          src={heroImg}
+          alt={service.heroAlt}
+          class="w-full rounded-xl shadow-2xl object-cover aspect-[4/3] ring-1 ring-white/10"
+          width="1200" height="900" fetchpriority="high" loading="eager"
+        />
+      </div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16">
+      <ContactForm page={`${service.serviceName} (service page)`} title={`Free ${service.serviceName.toLowerCase()} quote`} />
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <!-- Symptom to cause. The diagnostic spine of the page. -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">What you are seeing, and what it usually means</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">
+      None of this replaces somebody actually looking at your roof, but it will tell you roughly
+      what you are dealing with and how much of a hurry to be in.
+    </p>
+    <div class="mt-10 grid md:grid-cols-2 gap-px bg-slate/15 rounded-xl overflow-hidden border border-slate/15">
+      {service.symptoms.map((s) => (
+        <div class="bg-white p-6">
+          <h3 class="text-base font-bold text-brand-dark">{s.sign}</h3>
+          <p class="mt-2 text-sm text-slate/80">{s.cause}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Why use us for {service.serviceName.toLowerCase()} in {area}</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {service.benefits.map((b) => (
+          <div class="rounded-xl border border-slate/15 bg-paper p-6">
+            <h3 class="text-lg font-bold text-ink">{b.title}</h3>
+            <p class="mt-2 text-sm text-slate/80">{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local angle -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <img src={img(service.localAngle.publicId, 800)} alt={service.localAngle.alt}
+        class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+    </div>
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">{service.localAngle.h}</h2>
+      <p class="mt-6 text-slate/80">{service.localAngle.p}</p>
+    </div>
+  </section>
+
+  <!-- Insight stat -->
+  <section class="bg-brand/5 border-y border-brand/20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <p class="text-xl sm:text-2xl font-semibold text-ink leading-snug">"{service.insight}"</p>
+      <p class="mt-4 text-sm text-slate/60">
+        Based on the {service.serviceName.toLowerCase()} jobs handled by {business.name}
+      </p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center rule rule-center">How a {service.serviceName.toLowerCase()} job runs</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {process.map((step) => (
+          <div class="rounded-xl border border-steel bg-slate p-6">
+            <div class="text-brand-light text-3xl font-bold">{step.n}</div>
+            <h3 class="mt-2 text-lg font-semibold text-white">{step.h}</h3>
+            <p class="mt-2 text-steel-light/80 text-sm">{step.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Guarantee />
+
+  <!-- What to look for -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Three questions worth asking whoever you use</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">
+      Including us. If the answers do not stand up, that tells you something useful.
+    </p>
+    <div class="mt-10 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {service.whatToLook.map((w) => (
+        <div class="border-t-2 border-brand pt-5">
+          <h3 class="text-lg font-bold text-ink">{w.h}</h3>
+          <p class="mt-2 text-slate/80">{w.p}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{service.comparison.header}</h2>
+      <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">{service.comparison.intro}</p>
+      <div class="mt-10 overflow-x-auto">
+        <table class="w-full text-left border border-slate/15 rounded-lg overflow-hidden bg-white">
+          <thead class="bg-ink text-white">
+            <tr>
+              <th class="p-4 font-semibold" scope="col"><span class="sr-only">Comparison point</span></th>
+              <th class="p-4 font-semibold" scope="col">{service.comparison.proLabel}</th>
+              <th class="p-4 font-semibold" scope="col">{service.comparison.altLabel}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate/10 text-sm">
+            {service.comparison.rows.map((r) => (
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-ink text-left align-top">{r.label}</th>
+                <td class="p-4 text-slate/80 align-top">{r.pro}</td>
+                <td class="p-4 text-slate/80 align-top">{r.alt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="order-2 lg:order-1">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">{service.teaser.h}</h2>
+      <p class="mt-6 text-slate/80">{service.teaser.p}</p>
+      <a href={service.teaser.ctaHref} class="mt-6 inline-flex items-center gap-1 text-brand-dark font-semibold hover:underline">
+        {service.teaser.ctaText}<span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <div class="order-1 lg:order-2">
+      <img src={img(service.teaser.publicId, 800)} alt={service.teaser.alt}
+        class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- Cost teaser -->
+  <section class="bg-slate text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">What {service.serviceName.toLowerCase()} costs in {area}</h2>
+      <p class="mt-6 text-steel-light max-w-3xl mx-auto">{service.costText}</p>
+      <a href="/roof-repair-cost" class="mt-8 inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+        See the full cost guide
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{service.serviceName} - your questions</h2>
+    <div class="mt-10 max-w-3xl mx-auto divide-y divide-slate/15">
+      {service.faqs.map((faq) => (
+        <div class="py-6">
+          <h3 class="text-lg font-semibold text-ink">{faq.question}</h3>
+          <p class="mt-2 text-slate/80">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+    {service.related && service.related.length > 0 && (
+      <p class="mt-10 text-center text-slate/70">
+        <span class="mr-2">Also worth a look:</span>
+        {service.related.map((r, i) => (
+          <>
+            {i > 0 && <span class="mx-2 text-slate/30">·</span>}
+            <a href={r.href} class="text-brand-dark font-semibold hover:underline">{r.label}</a>
+          </>
+        ))}
+      </p>
+    )}
+  </section>
+
+  <!-- Areas covered -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-ink">Where we work</h2>
+      <p class="mt-6 text-slate/70 max-w-3xl mx-auto">
+        {service.serviceName} across the whole borough and over the boundary where it makes sense -
+        from the Victorian terraces at the Thornton Heath end up onto the chalk at Kenley, Coulsdon
+        and Sanderstead, and out to Wallington, Caterham, Warlingham and West Wickham.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-2">
+        <span class="rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-white">Croydon</span>
+        {locations.map((l) => (
+          <span class="rounded-full border border-slate/20 bg-paper px-4 py-1.5 text-sm text-slate/80">{l.name}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Reviews />
+
+  <!-- Final CTA -->
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">Get a free {service.serviceName.toLowerCase()} quote</h2>
+      <p class="mt-6 text-steel-light max-w-2xl mx-auto">
+        Ring and describe what you can see, or send a message and somebody will come out and put
+        their head in your loft. It costs nothing to find out what is wrong. The price you are
+        quoted is the price you pay. And if the answer turns out to be that it can wait another
+        few years, that is what you will be told.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+          Call {business.phone}
+        </a>
+        <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+          Book A Free Look
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <NextPage current={service.slug} />
+</Layout>

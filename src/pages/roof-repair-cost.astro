@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business, img } from "../data/business";
+import ContactForm from "../components/ContactForm.astro";
+import StatsBar from "../components/StatsBar.astro";
+import Guarantee from "../components/Guarantee.astro";
+import Reviews from "../components/Reviews.astro";
+import NextPage from "../components/NextPage.astro";
+
+const heroPublicId = "roof-repairs-croydon/site/roof-repair-cost-quote-paperwork-croydon";
+const heroImg = img(heroPublicId, 1200);
+
+// Ranges are honest bands rather than precise figures, because a precise figure
+// without seeing a roof is a guess dressed up. Access is called out separately
+// throughout because it is the single largest source of variation in this area.
+const priceRows = [
+  { job: "Clear and check gutters, two storey semi", band: "£80 - £180", note: "Includes checking the fall and the gully, not just scooping the leaves out." },
+  { job: "Refix a slipped slate or tile, ladder access", band: "£120 - £250", note: "Assumes it can be reached safely without scaffold or a tower." },
+  { job: "Trace and repair a leak", band: "£200 - £900", note: "The wide band is access and how buried the fault is, not the repair itself." },
+  { job: "Rebed a ridge or hip line", band: "£450 - £1,200", note: "A day's work on most semis. Mortar has to be right or it goes again." },
+  { job: "Replace a section of guttering or a downpipe", band: "£150 - £500", note: "uPVC. Cast iron is a different order of cost and quoted specifically." },
+  { job: "Repoint and reflash a chimney stack", band: "£900 - £2,500", note: "Access is usually the biggest single line in this one." },
+  { job: "Rebuild a chimney stack", band: "£2,000 - £5,000+", note: "Depends how far down it has to come and whether it is a party stack." },
+  { job: "Repair a flat roof locally", band: "£250 - £700", note: "Sensible on a sound roof with one split. Not sensible on a blistered one." },
+  { job: "Recover a single storey rear extension", band: "£1,800 - £4,500", note: "EPDM or felt. Building up the falls, where needed, is priced separately." },
+  { job: "Full uPVC roofline, two storey semi", band: "£1,600 - £3,500", note: "Fascias, soffits, bargeboards and new guttering, vented as standard." },
+  { job: "Full roof replacement, two storey semi", band: "£6,000 - £14,000", note: "Concrete tile. Natural slate and larger or taller roofs go well beyond this." },
+  { job: "Scaffold, typical two storey elevation", band: "£500 - £1,200", note: "Always its own line on a quote, never buried in the labour figure." },
+];
+
+const drivers = [
+  {
+    h: "Access, almost always",
+    p: "This is the thing people underestimate most. The same slate replaced from a ladder on a Shirley bungalow and from full scaffold on a three storey Victorian frontage on the Brighton Road is the same twenty minutes of roofing and a very different bill. If a quote does not separate access out, you cannot tell which you are paying for.",
+  },
+  {
+    h: "What the roof is covered in",
+    p: "Natural slate costs more than concrete tile to buy and more to lay, and reclaimed slate for a match on a Victorian terrace costs more again. Hand-made clay tiles on the Arts and Crafts houses of the Webb Estate at Purley are a different bracket entirely.",
+  },
+  {
+    h: "How complicated the roof is",
+    p: "Hips, valleys, dormers, bay roofs, catslides and anything where two different roofs meet all add time and all add leadwork. A simple gabled roof is a fraction of the work of a hipped roof with three valleys and a dormer.",
+  },
+  {
+    h: "What is underneath",
+    p: "A quote can only assume so much until the covering comes off. Soft battens, rotten sarking or a failed deck on a flat roof change the job. An honest quote says what has been assumed and what happens if that assumption turns out wrong.",
+  },
+  {
+    h: "Where the skip goes",
+    p: "On most Croydon roads a skip has to go on the highway, which needs a licence from the council. It is not a large cost but it is a real one, and it belongs in the quote rather than appearing later.",
+  },
+  {
+    h: "Whether anything is protected",
+    p: "In a conservation area, or inside one of the borough's Article 4 areas, the material may be prescribed rather than chosen. That can rule out the cheap option before the conversation starts.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Why will you not give me a price over the phone?",
+    answer:
+      "You can have a band over the phone and you have one on this page. What you cannot have is a fixed figure, because until somebody has seen how your roof is reached and what has actually failed, any precise number is a guess. Firms that do give one tend to revise it upwards once they arrive, which is worse than not having had it.",
+  },
+  {
+    question: "Do you charge for quoting?",
+    answer:
+      "No. Attendance, the survey and the written quote are all free, including the visits that end with us telling you no work is needed. There is no call-out fee and no charge for the report.",
+  },
+  {
+    question: "Is the quote fixed?",
+    answer:
+      "Yes, for the work described in it. The only thing that changes a fixed price is something genuinely not visible at survey - rotten timber found once the covering is off, for example. Where that is a realistic possibility on your roof, the quote says so up front and says what it would cost, rather than leaving it as an open-ended risk.",
+  },
+  {
+    question: "Do you take a deposit?",
+    answer:
+      "Not for ordinary repairs. On larger jobs where materials have to be ordered specifically - reclaimed slate, a matched discontinued tile - a materials deposit is normal, and it will be itemised. Nobody should be asking for a large cash sum up front for a roof repair, and if somebody does, that is a reason to stop.",
+  },
+  {
+    question: "Is it cheaper to do several jobs at once?",
+    answer:
+      "Meaningfully, yes, and it is worth thinking about. Access is often the largest single line on a roofing quote, so if scaffold is going up for a chimney anyway, doing the roofline, the guttering or a ridge line at the same time avoids paying for that access twice. If your stack is borderline and the scaffold is already booked, it is usually the moment to deal with it.",
+  },
+  {
+    question: "How do I compare two quotes properly?",
+    answer:
+      "Get both itemised. Then check they include the same things: access, strip and disposal, membrane, battens, the actual covering, leadwork, ridge, ventilation and rainwater goods. A cheaper quote is very often a quote that has left something out - re-using old battens is the classic one, because it is invisible from the ground and it costs you a decade.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: business.url },
+    { "@type": "ListItem", position: 2, name: "Roof Repair Cost", item: `${business.url}/roof-repair-cost` },
+  ],
+};
+---
+
+<Layout
+  title="Roof Repair Cost In Croydon | Roof Repairs Croydon"
+  description="What roof repairs cost in Croydon, job by job, with honest price bands and what actually drives the figure. Free survey, fixed written quotes."
+  heroImage={heroImg}
+  ogImage={heroImg}
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="relative bg-ink text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate via-ink to-ink" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16 text-center">
+      <nav aria-label="Breadcrumb" class="text-xs text-steel-light/60">
+        <a href="/" class="hover:text-brand-light">Home</a>
+        <span class="mx-2 text-steel">/</span>
+        <span class="text-steel-light">Roof Repair Cost</span>
+      </nav>
+      <h1 class="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+        <a href="/" class="text-white hover:text-brand-light transition-colors">Roof Repair Cost In Croydon</a>
+      </h1>
+      <h2 class="mt-4 text-xl font-semibold text-brand-light">
+        What should you actually expect to pay?
+      </h2>
+      <h3 class="mt-3 text-lg font-semibold text-steel-light">
+        Honest price bands for the jobs that come up most often, and what makes the figure move
+      </h3>
+      <p class="mt-6 text-lg text-steel-light text-left">
+        Roofing prices are opaque, which suits the trade and does not suit you. So here are real
+        bands for real jobs in this borough. They are bands rather than fixed figures because the
+        biggest variable on a Croydon roof is usually not the repair at all - it is how hard the
+        roof is to stand on safely, and that changes enormously between a bungalow in Selsdon and
+        a three storey Victorian frontage in South Croydon. Everything below assumes work in the
+        borough and the surrounding CR postcodes.
+      </p>
+      <div class="mt-10 text-left">
+        <ContactForm page="Roof Repair Cost" title="Get a fixed written price" />
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Roof repair prices in Croydon</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">
+      Guide bands, inclusive of labour and materials, based on the work we do around the borough.
+      Access is shown separately at the bottom because on many jobs it is the largest single line.
+    </p>
+    <div class="mt-10 overflow-x-auto">
+      <table class="w-full text-left border border-slate/15 rounded-lg overflow-hidden bg-white">
+        <thead class="bg-ink text-white">
+          <tr>
+            <th class="p-4 font-semibold" scope="col">Job</th>
+            <th class="p-4 font-semibold" scope="col">Guide price</th>
+            <th class="p-4 font-semibold" scope="col">What it assumes</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate/10 text-sm">
+          {priceRows.map((r) => (
+            <tr>
+              <th scope="row" class="p-4 font-semibold text-ink text-left align-top">{r.job}</th>
+              <td class="p-4 font-semibold text-brand-dark whitespace-nowrap align-top">{r.band}</td>
+              <td class="p-4 text-slate/80 align-top">{r.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-6 text-center text-sm text-slate/60 max-w-3xl mx-auto">
+      These are guide figures to help you sanity check a quote, including ours. They are not a
+      quotation, and no honest one can be given without somebody looking at the roof.
+    </p>
+  </section>
+
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Six things that move the price</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {drivers.map((d) => (
+          <div class="rounded-xl border border-slate/15 bg-paper p-6">
+            <h3 class="text-lg font-bold text-ink">{d.h}</h3>
+            <p class="mt-2 text-sm text-slate/80">{d.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <img src={img("roof-repairs-croydon/site/scaffolding-and-netting-on-building-croydon", 800)}
+        alt="Scaffolding erected on a building in Croydon for roof access"
+        class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+    </div>
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">Why access is on its own line</h2>
+      <p class="mt-6 text-slate/80">
+        Almost every complaint about roofing prices comes back to the same thing: the customer
+        thought they were paying for a repair, and most of the money went on getting somebody
+        safely to it. That is not a scandal - scaffold genuinely costs what it costs, and the
+        alternative is somebody working unsafely on your house. What is unreasonable is hiding it
+        inside a single figure so you cannot see it.
+      </p>
+      <p class="mt-4 text-slate/80">
+        Every quote here separates access from work. If a twenty minute repair on your roof needs
+        eight hundred pounds of scaffold, you will see both numbers and you can make an informed
+        decision - including the decision to bundle other jobs into the same visit, or to wait
+        until something else needs doing up there anyway.
+      </p>
+      <p class="mt-4 text-slate/80">
+        It also makes quotes comparable. Two prices for the same job can only be compared if you
+        can see what each of them included, which is the whole argument for itemising.
+      </p>
+    </div>
+  </section>
+
+  <Guarantee />
+
+  <section class="bg-brand/5 border-y border-brand/20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <p class="text-xl sm:text-2xl font-semibold text-ink leading-snug">
+        "On smaller repairs across the borough, getting somebody safely up to the work regularly
+        costs more than the work itself."
+      </p>
+      <p class="mt-4 text-sm text-slate/60">Based on the quotes issued by {business.name}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Questions about cost</h2>
+    <div class="mt-10 max-w-3xl mx-auto divide-y divide-slate/15">
+      {faqs.map((faq) => (
+        <div class="py-6">
+          <h3 class="text-lg font-semibold text-ink">{faq.question}</h3>
+          <p class="mt-2 text-slate/80">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Reviews />
+
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">Get a real figure, not a band</h2>
+      <p class="mt-6 text-steel-light max-w-2xl mx-auto">
+        The bands above are for orientation. For an actual number, somebody needs to look at your
+        roof - which costs nothing, commits you to nothing, and takes about half an hour.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+          Call {business.phone}
+        </a>
+        <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+          Book A Free Look
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <NextPage current="/roof-repair-cost" />
+</Layout>

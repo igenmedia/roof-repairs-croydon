@@ -1,0 +1,24 @@
+---
+import { business } from "../data/business";
+
+// Two of these are real figures. The other two are statements of how the firm
+// works rather than numbers, which is deliberate - there is no materials
+// guarantee figure here because it varies by product and a single number would
+// be wrong on most jobs.
+const items = [
+  { label: business.repairsCompleted, sub: "Roofs put right" },
+  { label: `${business.workmanshipGuaranteeYears} year`, sub: "Written workmanship guarantee" },
+  { label: "£0", sub: "To have somebody come and look" },
+  { label: "Repair first", sub: "Replacement is the last resort" },
+];
+---
+<section class="bg-ink text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
+    {items.map((i) => (
+      <div class="border-l-2 border-brand pl-4">
+        <p class="text-lg font-bold text-white">{i.label}</p>
+        <p class="mt-1 text-sm text-steel-light/70">{i.sub}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72" role="img" aria-label="Roof Repairs Croydon">
+  <title>Roof Repairs Croydon</title>
+  <!-- Roof mark: a clay-red pitched roof over a graphite house block -->
+  <g>
+    <rect x="0" y="0" width="62" height="72" rx="10" fill="#16181b"/>
+    <path d="M10 38 L31 19 L52 38 Z" fill="#d93b30"/>
+    <rect x="17" y="38" width="28" height="17" rx="2" fill="#ced4da"/>
+    <rect x="27" y="44" width="8" height="11" fill="#16181b"/>
+    <path d="M42 21 h5 v10 l-5 -4.5 Z" fill="#d93b30"/>
+  </g>
+  <text x="74" y="33" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="25" font-weight="700" letter-spacing="-0.4" fill="#ffffff">ROOF REPAIRS</text>
+  <text x="75" y="57" font-family="Archivo, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="21" font-weight="600" letter-spacing="5.6" fill="#ef6a5c">CROYDON</text>
+</svg>

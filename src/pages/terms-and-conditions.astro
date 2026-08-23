@@ -1,0 +1,137 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business } from "../data/business";
+
+const REGISTERED_OFFICE = "Dorset House, 5 Church Street, Wimborne, Dorset, BH21 1JH";
+const lastUpdated = "23 August 2026";
+// Until the roofing company is confirmed the terms describe the arrangement
+// without naming an entity that has not been verified at Companies House.
+const hasContractor = Boolean(business.contractor.name);
+---
+
+<Layout
+  title="Terms & Conditions | Roof Repairs Croydon"
+  description="The terms on which this website is provided, who operates it, and who carries out the roofing work quoted through it."
+  noindex={true}
+>
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <h1 class="text-4xl font-bold tracking-tight">
+        <a href="/" class="text-white hover:text-brand-light transition-colors">Terms &amp; Conditions</a>
+      </h1>
+      <h2 class="mt-4 text-lg font-semibold text-brand-light">Who you are dealing with, and on what basis</h2>
+      <h3 class="mt-2 text-base font-semibold text-steel-light">Last updated {lastUpdated}</h3>
+    </div>
+  </section>
+
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 prose prose-stone prose-a:text-brand-dark">
+    <h2>Who operates this website</h2>
+    <p>
+      This website trades as {business.name} and is owned and operated by
+      {" "}{business.siteOperator.name}, a company registered in England and Wales under number
+      {" "}{business.siteOperator.companyNumber}, registered office {REGISTERED_OFFICE}.
+    </p>
+
+    <h2>Who carries out the roofing work</h2>
+    {hasContractor ? (
+      <p>
+        {business.siteOperator.name} does not carry out roofing work. Surveys, quotations and the
+        roofing itself are carried out by {business.contractor.name}, company number
+        {" "}{business.contractor.companyNumber}. Any contract for roofing work is between you and
+        that company, not between you and {business.siteOperator.name}.
+      </p>
+    ) : (
+      <p>
+        {business.siteOperator.name} does not carry out roofing work. Surveys, quotations and the
+        roofing itself are carried out by a separate roofing company, whose identity and company
+        number will be given to you in writing before any agreement is made. Any contract for
+        roofing work is between you and that company, not between you and
+        {" "}{business.siteOperator.name}.
+      </p>
+    )}
+    <p>
+      The role of {business.siteOperator.name} is to run this website and to pass your enquiry to
+      that company. It does not survey roofs, does not issue quotations and is not a party to the
+      work.
+    </p>
+
+    <h2>Enquiries and quotations</h2>
+    <p>
+      Submitting an enquiry does not create a contract and places you under no obligation. Surveys
+      and written quotations are provided free of charge and without obligation.
+    </p>
+    <p>
+      Quotations are fixed for the work described in them. The only circumstance in which a fixed
+      price changes is where something not reasonably visible at the time of survey is found once
+      work begins - for example rot in timber that was concealed by the roof covering. Where that
+      is a realistic possibility on your roof, the quotation will say so before you accept it.
+    </p>
+    <p>
+      Guide prices published on this website, including on the roof repair cost page, are
+      indicative bands to help you assess a quotation. They are not offers and they are not
+      quotations.
+    </p>
+
+    <h2>Guarantees</h2>
+    <p>
+      Work booked through this website carries a {business.workmanshipGuaranteeYears} year
+      workmanship guarantee, issued in writing by the company carrying out the work and provided to
+      you on completion. Materials carry the relevant manufacturer's own warranty, which varies by
+      product and is confirmed for your particular job.
+    </p>
+    <p>
+      The workmanship guarantee covers the work carried out. It does not cover subsequent storm
+      damage, damage caused by third parties, failure of parts of the roof not included in the
+      work, or deterioration arising from a lack of ordinary maintenance such as clearing gutters.
+    </p>
+
+    <h2>Your cancellation rights</h2>
+    <p>
+      Where an agreement for work is made away from the contractor's business premises - which
+      includes agreements made at your home - you normally have 14 days to cancel under the Consumer
+      Contracts (Information, Cancellation and Additional Charges) Regulations 2013. If you ask for
+      work to begin within that period and then cancel, you may be charged for what has already been
+      done. Your cancellation rights are set out in full in the paperwork issued with the quotation.
+    </p>
+    <p>
+      Nothing in these terms affects your statutory rights under the Consumer Rights Act 2015,
+      including the right to have services carried out with reasonable care and skill.
+    </p>
+
+    <h2>Content on this website</h2>
+    <p>
+      The guides, price bands and explanations on this site are general information about roofing in
+      the Croydon area. They are not a substitute for somebody inspecting your roof, and no decision
+      to spend or not spend money should rest on them alone. Planning and building control
+      information is included in good faith and was correct when written, but rules change and vary
+      by authority. Always confirm your own position with the relevant council before relying on it.
+    </p>
+    <p>
+      Text, images and layout on this site belong to {business.siteOperator.name} or are used under
+      licence, and may not be reproduced without permission.
+    </p>
+
+    <h2>Liability</h2>
+    <p>
+      Nothing in these terms limits liability for death or personal injury caused by negligence, for
+      fraud, or for anything else that cannot lawfully be limited. Subject to that,
+      {" "}{business.siteOperator.name}'s liability in connection with this website is limited to
+      the operation of the website itself, and liability in respect of roofing work rests with the
+      company that carried it out.
+    </p>
+
+    <h2>Governing law</h2>
+    <p>
+      These terms are governed by the law of England and Wales, and the courts of England and Wales
+      have jurisdiction.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      {business.siteOperator.name}, {REGISTERED_OFFICE}.<br />
+      Email: <a href={`mailto:${business.email}`}>{business.email}</a><br />
+      Telephone: <a href={business.phoneHref}>{business.phone}</a>
+    </p>
+    <p>See also our <a href="/privacy-policy">privacy policy</a>.</p>
+  </article>
+</Layout>

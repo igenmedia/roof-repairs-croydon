@@ -1,0 +1,472 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { business, img } from "../data/business";
+import { locations } from "../data/locations";
+import { services } from "../data/services";
+import ContactForm from "../components/ContactForm.astro";
+import StatsBar from "../components/StatsBar.astro";
+import Reviews from "../components/Reviews.astro";
+import Guarantee from "../components/Guarantee.astro";
+import NextPage from "../components/NextPage.astro";
+
+const heroPublicId = "roof-repairs-croydon/site/roof-repairs-croydon-victorian-terrace-chimneys";
+const heroImg = img(heroPublicId, 1200);
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+// Service cards. Eight of them, so the grid divides evenly at 2 and 4 columns
+// and never leaves an orphan on the last row.
+const cards = services.map((s) => ({
+  name: s.serviceName,
+  slug: s.slug,
+  publicId: s.heroPublicId,
+  alt: s.heroAlt,
+  blurb: {
+    "/roof-leak-repairs":
+      "Traced to where the water is actually getting in, which is rarely directly above the stain.",
+    "/emergency-roof-repairs":
+      "Same day make-safe when water is coming into the house. No call-out fee, no out-of-hours premium.",
+    "/storm-damage-repairs":
+      "Made safe, photographed for your insurer, then repaired properly once the wind has dropped.",
+    "/flat-roof-repairs":
+      "Extensions, dormers and garages. We look at where the water sits before we talk about coverings.",
+    "/chimney-repairs":
+      "Repointing, flaunching and lead flashings. Most stacks can be repaired rather than rebuilt.",
+    "/guttering":
+      "Cleared, realigned or replaced. A surprising share of damp walls turn out to start here.",
+    "/fascias-and-soffits":
+      "Rotten roofline put right, with the eaves ventilation kept open rather than sealed up.",
+    "/roof-replacement":
+      "When it is genuinely needed. Matched covering, new battens, new felt, proper ventilation.",
+  }[s.slug],
+}));
+
+const whyUs = [
+  "The survey costs nothing and carries no obligation, so there is no reason for anyone to invent a problem to justify the visit.",
+  "Somebody goes in your loft. Half the evidence about a leak is on the underside, and a diagnosis made only from outside is a guess with a price attached.",
+  "You get told the cause before you get told the cost, in writing, so you can take that diagnosis to somebody else if you want a second view.",
+  "Quotes are itemised, with access on its own line. You can see what you are paying to reach the work as opposed to what you are paying for the work.",
+  "Nobody here is on commission for selling roofs. Plenty of people are told their roof is sound and to come back in five years.",
+];
+
+const process = [
+  { n: "01", h: "Describe what you can see", p: "Which room, which wall, and whether it depends on wind direction. That last detail narrows things down a long way before anyone climbs anything." },
+  { n: "02", h: "A free look, loft included", p: "Somebody comes out, goes up, and also puts their head in the loft. No charge and no expectation that it turns into work." },
+  { n: "03", h: "Diagnosis first", p: "You hear what has actually failed, in plain terms, with photographs where they explain it better than words do." },
+  { n: "04", h: "A written, itemised price", p: "Line by line, access priced separately. The figure on the quote is the figure on the invoice." },
+  { n: "05", h: "Cut back to something solid", p: "Failed material comes out until there is sound timber and masonry underneath. New work over soft mortar is a repair with a countdown on it." },
+  { n: "06", h: "Checked, cleared, guaranteed", p: "Neighbouring details checked while access is still up, everything swept, photographs sent, written guarantee handed over the same day." },
+];
+
+const faqs = [
+  {
+    question: "Which areas of Croydon do you cover?",
+    answer:
+      "The whole borough, from Thornton Heath, Norbury and South Norwood in the north through Addiscombe, Shirley and Selsdon to Purley, Kenley, Coulsdon and Sanderstead in the south, plus New Addington. We also work over the boundary into Wallington, Caterham, Warlingham and West Wickham. We are based on Penwortham Road in South Croydon, so most of that is inside twenty minutes.",
+  },
+  {
+    question: "Is the survey really free?",
+    answer:
+      "Yes, including the ones that end with us telling you nothing needs doing. That is the point of it. A firm that charges to attend has a reason to find work once it has driven out to you, and a firm that does not charge has no reason to invent anything.",
+  },
+  {
+    question: "Do I need planning permission to repair my roof?",
+    answer:
+      "For like-for-like repair, no, anywhere in the borough. It gets more complicated if you are changing the covering or the roof shape, and there are 21 conservation areas in Croydon. The strictest case is the Chatsworth Road conservation area in Addiscombe, where an Article 4 direction has required planning permission for all alterations to the roof of a dwelling house since January 2016. There are further Article 4 directions at The Waldrons, Kenley Aerodrome, Kenley Lane and Hawkhirst Road, and Mitchley Hill and Dunmail Drive.",
+  },
+  {
+    question: "Do you only work on houses?",
+    answer:
+      "Mostly, but not exclusively. Flat roofs on small commercial units, shop parades and blocks of flats are all normal work. What we do not take on is large commercial contracts that would mean subcontracting the job out, because the whole point of how this operates is that the person who surveyed your roof is connected to the person who repairs it.",
+  },
+  {
+    question: "How soon can you come out?",
+    answer:
+      "Same day for water actively coming into a house, wherever it is safely possible. Within a few days for anything that is not urgent. If it is windy, work on the roof itself waits until it is safe, though we can usually stop damage getting worse in the meantime.",
+  },
+  {
+    question: "What does the guarantee actually cover?",
+    answer:
+      "Ten years on the workmanship, in writing, handed to you on the day the job finishes. If the same water finds its way back into your house within that period, putting it right costs you nothing. Materials carry the manufacturer's own cover on top, which varies by product, so you get told which applies to your specific job rather than a single headline number.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+// Grouped for the "which council" section. Genuinely useful, and something
+// almost no competing site in this patch gets right.
+const councilGroups = [
+  {
+    council: "London Borough of Croydon",
+    towns: locations.filter((l) => l.council === "London Borough of Croydon").map((l) => l.name),
+    note: "Most of the patch, and the only one with Article 4 directions that bite on roof work.",
+  },
+  {
+    council: "London Borough of Sutton",
+    towns: locations.filter((l) => l.council === "London Borough of Sutton").map((l) => l.name),
+    note: "Different portal, different building control team, despite the shared postcodes.",
+  },
+  {
+    council: "Tandridge District Council",
+    towns: locations.filter((l) => l.council === "Tandridge District Council").map((l) => l.name),
+    note: "Surrey, not London, and due to become part of a new Surrey unitary authority.",
+  },
+  {
+    council: "London Borough of Bromley",
+    towns: locations.filter((l) => l.council === "London Borough of Bromley").map((l) => l.name),
+    note: "Feels like Croydon from the Shirley side. Is not Croydon for anything official.",
+  },
+];
+---
+
+<Layout
+  title="Roof Repairs Croydon – Leaks, Storm Damage & Flat Roofs"
+  description="Roof repairs in Croydon. Leaks traced properly, emergency call-outs, storm damage, flat roofs, chimneys and guttering. Free survey, 10 year guarantee."
+  heroImage={heroImg}
+  ogImage={heroImg}
+  schema={[faqSchema]}
+>
+  <!-- Hero -->
+  <section class="relative bg-ink text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate via-ink to-ink" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="inline-flex items-center rounded-full border border-brand/50 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-light">
+          {business.repairsCompleted} roofs put right
+        </p>
+        <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+          Roof Repairs Croydon
+        </h1>
+        <h2 class="mt-4 text-xl font-semibold text-brand-light">
+          Roof Repairs Croydon - roof repair specialists for the borough and the CR postcodes
+        </h2>
+        <h3 class="mt-3 text-lg font-semibold text-steel-light">
+          Leaks, slipped slates and tiles, storm damage, flat roofs, chimneys and guttering, diagnosed properly and repaired once
+        </h3>
+        <p class="mt-6 text-lg text-steel-light">
+          Repairing roofs is the entire business here. It is not a route into selling you a new
+          one. Croydon is an unusual borough to roof in: it runs about four hundred feet uphill
+          from the Victorian terraces at Thornton Heath to the chalk ridge at Kenley and
+          Sanderstead, and a roof at one end of it has almost nothing in common with a roof at the
+          other. What fails, and why, changes as you climb.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+            Call {business.phone}
+          </a>
+          <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+            Book A Free Look
+          </a>
+        </div>
+      </div>
+      <div>
+        <img
+          src={heroImg}
+          alt="Victorian terrace roofline with chimney stacks and dormer windows in Croydon"
+          class="w-full rounded-xl shadow-2xl object-cover aspect-[4/3] ring-1 ring-white/10"
+          width="1200" height="900" fetchpriority="high" loading="eager"
+        />
+      </div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 lg:pb-20">
+      <ContactForm page="Homepage" title="Book a free roof survey" />
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="bg-white border-b border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 lg:grid-cols-4 gap-4 text-center text-sm font-semibold text-slate">
+      <p>Public liability insured</p>
+      <p>No call-out fee, ever</p>
+      <p>Written itemised quotes</p>
+      <p>Based in South Croydon</p>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <!-- Services -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Roof repairs we carry out in Croydon</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">
+      Eight things, done properly, rather than a list of thirty. If what you need is not here we
+      will tell you who does it rather than have a go.
+    </p>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {cards.map((c) => (
+        <a href={c.slug} class="group rounded-xl border border-slate/15 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <img src={img(c.publicId, 600)} alt={c.alt} class="w-full object-cover aspect-[4/3]"
+            width="600" height="450" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-ink group-hover:text-brand-dark">{c.name}</h3>
+            <p class="mt-2 text-sm text-slate/80">{c.blurb}</p>
+            <span class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-dark">
+              More on this<span aria-hidden="true">&rarr;</span>
+              <span class="sr-only">about {c.name.toLowerCase()} in Croydon</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- The signature local section -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">Two boroughs' worth of roof in one borough</h2>
+        <p class="mt-6 text-slate/80">
+          Croydon is the largest London borough by population and it is split in half by its own
+          geology. The north sits on the clays and gravelly sands of the Lambeth Group, low ground
+          at the foot of the Norwood Hills. The south climbs onto the chalk of the North Downs.
+          Between Thornton Heath and the ridge above Kenley there is roughly four hundred feet of
+          height, and that difference shows up in the work.
+        </p>
+        <p class="mt-4 text-slate/80">
+          Down at the Thornton Heath, Norbury and South Norwood end it is dense Victorian and
+          Edwardian terraces. Slate front slopes, London stock brick, parapets, shared gutters and
+          a back addition with its own small roof. The faults there are almost all about age and
+          about the neighbours: nail fatigue letting slates go one at a time with no weather to
+          explain it, a party gutter two doors down putting water into your wall, a chimney pointed
+          in hard cement forty years ago that has been spalling ever since.
+        </p>
+        <p class="mt-4 text-slate/80">
+          Up the hill in Sanderstead, Purley, Coulsdon and Kenley it is interwar semis and detached
+          houses. Concrete tile, hipped roofs, deep eaves, generous overhangs. Those roofs are
+          younger and generally sounder, but they are exposed. The Met Office long-term average at
+          Kenley Airfield is around 847mm of rain across roughly 130 rain days a year, with about
+          35 nights of air frost - noticeably harder going than the low ground a few miles north.
+          Up there the faults are about wind and frost: a verge lifted, a ridge line whose mortar
+          bedding has finally given up, rain driven under a lap on the weather side.
+        </p>
+        <p class="mt-4 text-slate/80">
+          It is the same trade in both places and a completely different set of first assumptions.
+          Somebody who only works the terraces will reach for the wrong explanation on the Downs,
+          and the other way round.
+        </p>
+      </div>
+      <div>
+        <img src={img("roof-repairs-croydon/site/aerial-view-croydon-suburban-rooftops", 800)}
+          alt="Aerial view of suburban rooftops across the Croydon borough"
+          class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <img src={img("roof-repairs-croydon/site/roofers-working-on-roof-croydon", 800)}
+        alt="Roofers working on a roof in Croydon"
+        class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+    </div>
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">Why use Roof Repairs Croydon</h2>
+      <ul class="mt-8 space-y-4">
+        {whyUs.map((point) => (
+          <li class="flex gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 flex-none text-brand" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-slate/80">{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Insight stat -->
+  <section class="bg-brand/5 border-y border-brand/20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <p class="text-xl sm:text-2xl font-semibold text-ink leading-snug">
+        "Somewhere around a third of the call-outs we attend in Croydon turn out not to be the roof
+        covering at all. They are guttering, or they are condensation."
+      </p>
+      <p class="mt-4 text-sm text-slate/60">Based on the enquiries handled by {business.name}</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center rule rule-center">How a repair runs, start to finish</h2>
+      <p class="mt-8 text-center text-steel-light/70 max-w-3xl mx-auto">
+        Six stages. At each one you are told something, which is rather the point.
+      </p>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {process.map((step) => (
+          <div class="rounded-xl border border-steel bg-slate p-6">
+            <div class="text-brand-light text-3xl font-bold">{step.n}</div>
+            <h3 class="mt-2 text-lg font-semibold text-white">{step.h}</h3>
+            <p class="mt-2 text-steel-light/80 text-sm">{step.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Guarantee />
+
+  <!-- Which council -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Four councils, one set of postcodes</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">
+      This trips people up constantly, and it matters the moment a job needs an application. A CR
+      postcode does not mean Croydon Council. Here is who you are actually dealing with.
+    </p>
+    <div class="mt-10 grid sm:grid-cols-2 gap-6">
+      {councilGroups.map((g) => (
+        <div class="rounded-xl border border-slate/15 bg-white p-6">
+          <h3 class="text-lg font-bold text-ink">{g.council}</h3>
+          <p class="mt-2 text-sm text-slate/60">{g.note}</p>
+          <p class="mt-3 text-sm text-slate/80">{g.towns.join(", ")}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 text-center text-sm text-slate/60 max-w-3xl mx-auto">
+      Like-for-like repair needs no permission from any of them. It starts to matter when you are
+      changing a covering, altering a roof shape, or working in a conservation area.
+    </p>
+  </section>
+
+  <!-- Common problems teaser -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">Work out what you are looking at first</h2>
+        <p class="mt-6 text-slate/80">
+          Most people ring a roofer knowing only that there is a damp patch somewhere. That is
+          fine, and it is what a free survey is for. But if you would rather have some idea before
+          anybody knocks on the door, there is a guide to the faults that turn up most often on
+          Croydon roofs: what each one looks like from the ground, what is actually happening up
+          there, and roughly how much of a hurry to be in about it.
+        </p>
+        <p class="mt-4 text-slate/80">
+          It includes the two that account for a great many wasted call-outs - condensation
+          mistaken for a leak, and guttering mistaken for a roof problem - because knowing the
+          difference can save you a bill entirely.
+        </p>
+        <a href="/common-roof-problems" class="mt-6 inline-flex items-center gap-1 text-brand-dark font-semibold hover:underline">
+          Read the roof problems guide<span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <div class="order-1 lg:order-2">
+        <img src={img("roof-repairs-croydon/site/moss-covered-concrete-roof-tiles-croydon", 800)}
+          alt="Moss covering concrete roof tiles on a house in Croydon"
+          class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <Reviews />
+
+  <!-- Blog -->
+  {posts.length > 0 && (
+    <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">From the blog</h2>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="group rounded-xl border border-slate/15 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <img src={post.data.heroImage} alt={post.data.heroImageAlt}
+              class="w-full object-cover aspect-[3/2]" width="600" height="400" loading="lazy" />
+            <div class="p-5">
+              <p class="text-xs text-slate/50">
+                {post.data.pubDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+              </p>
+              <h3 class="mt-1 text-lg font-bold text-ink group-hover:text-brand-dark">{post.data.title}</h3>
+              <p class="mt-2 text-sm text-slate/80">{post.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      <p class="mt-8 text-center">
+        <a href="/blog" class="text-brand-dark font-semibold hover:underline">See all posts &rarr;</a>
+      </p>
+    </section>
+  )}
+
+  <!-- Pricing teaser -->
+  <section class="bg-slate text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">What does a roof repair cost in Croydon?</h2>
+      <p class="mt-6 text-steel-light max-w-3xl mx-auto">
+        Small repairs generally sit in the hundreds. Chimney and roofline work runs into four
+        figures once access is counted. Full replacement is thousands. The single biggest variable
+        is almost never the repair itself - it is how hard your roof is to stand on safely, which
+        is why access is always priced as its own line. The cost guide breaks down what each part
+        contributes so you can sanity check any quote you are given, ours included.
+      </p>
+      <a href="/roof-repair-cost" class="mt-8 inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+        See the full cost guide
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Questions we get asked</h2>
+    <div class="mt-10 max-w-3xl mx-auto divide-y divide-slate/15">
+      {faqs.map((faq) => (
+        <div class="py-6">
+          <h3 class="text-lg font-semibold text-ink">{faq.question}</h3>
+          <p class="mt-2 text-slate/80">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Service area -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Where we cover</h2>
+      <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">
+        We are on Penwortham Road in South Croydon, which puts most of the borough inside twenty
+        minutes and the far edges of the patch not much beyond that. Below is where we regularly
+        work. If your road is not listed and you are near one that is, ring anyway.
+      </p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {locations.map((l) => (
+          <div class="rounded-lg border border-slate/15 bg-paper p-4">
+            <h3 class="font-bold text-ink">{l.name}</h3>
+            <p class="mt-1 text-xs text-slate/50">{l.postcode} · {l.council}</p>
+            <p class="mt-2 text-sm text-slate/75">{l.driveTime}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">Find out what is actually wrong, for nothing</h2>
+      <p class="mt-6 text-steel-light max-w-2xl mx-auto">
+        Ring and describe the symptom, or send a message and somebody will come out, go up, and put
+        their head in your loft. There is no charge for the visit and no obligation at the end of
+        it. You might be told your roof needs a day's work. You might be told it needs nothing at
+        all. Either way you will know.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+          Call {business.phone}
+        </a>
+        <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+          Book A Free Look
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <NextPage current="/" />
+</Layout>

@@ -1,0 +1,308 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business, img } from "../data/business";
+import ContactForm from "../components/ContactForm.astro";
+import StatsBar from "../components/StatsBar.astro";
+import Reviews from "../components/Reviews.astro";
+import NextPage from "../components/NextPage.astro";
+
+const heroPublicId = "roof-repairs-croydon/site/weathered-grey-roof-tiles-croydon";
+const heroImg = img(heroPublicId, 1200);
+
+// Urgency is deliberately blunt. People need to know whether to ring tonight or
+// put it on the list for spring, and vagueness there helps nobody.
+const problems = [
+  {
+    name: "A slate or tile has slipped",
+    urgency: "Weeks, not months",
+    urgencyClass: "bg-amber-100 text-amber-900 border-amber-300",
+    looks:
+      "One visible gap or a tile sitting at an angle, often near a verge, a hip or the edge of the slope.",
+    happening:
+      "On older Croydon terraces this is usually nail fatigue: the fixings have corroded and the slate is being held by friction rather than by anything. On the interwar stock further south it is more often wind that got under an edge.",
+    matters:
+      "The gap exposes the felt to sunlight, which degrades it, and it gives the next gale an edge to lift. One tile becomes a course surprisingly quickly. The repair itself is small and cheap if it is caught early.",
+  },
+  {
+    name: "A damp patch on an upstairs ceiling",
+    urgency: "Get it looked at",
+    urgencyClass: "bg-amber-100 text-amber-900 border-amber-300",
+    looks:
+      "A brown-edged stain, sometimes with the paint blistering around it. May only appear after certain kinds of weather.",
+    happening:
+      "Water is coming in somewhere and travelling before it drops. The entry point is very often several metres away from the stain, following a rafter or a batten until something interrupts it.",
+    matters:
+      "It will not dry out on its own and prolonged wetting rots timber. Worth knowing: if the patch grows steadily in dry weather as well as wet, it is more likely condensation than a leak, and that is a ventilation problem rather than a roofing one.",
+  },
+  {
+    name: "Water running down an inside wall in heavy rain",
+    urgency: "This one is usually cheap",
+    urgencyClass: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    looks:
+      "Wet appearing high on an outside wall during downpours, drying between them. Often a green or black stripe on the outside of the wall in the same place.",
+    happening:
+      "Almost always guttering. Either it is blocked, or the brackets have sagged so the gutter no longer falls towards the outlet and water sits in the middle and goes over the front.",
+    matters:
+      "It is one of the cheapest things on this list to put right and one of the most expensive to ignore, because months of water down a wall softens pointing and eventually gets through to the plaster inside.",
+  },
+  {
+    name: "Ridge or hip tiles out of line",
+    urgency: "Before the next gale",
+    urgencyClass: "bg-amber-100 text-amber-900 border-amber-300",
+    looks:
+      "The line along the top of the roof, or down a hip, is no longer straight. You may see mortar missing between the tiles.",
+    happening:
+      "The mortar bedding has failed. This is the single most common storm casualty on the interwar semis across Shirley, Selsdon, Coulsdon and Sanderstead, and it is usually age rather than the storm.",
+    matters:
+      "A loose ridge tile falling from that height is genuinely dangerous, and a whole ridge line can go in one night once the first one moves. Rebedding a ridge is a day's work.",
+  },
+  {
+    name: "Damp on a chimney breast",
+    urgency: "Get it looked at",
+    urgencyClass: "bg-amber-100 text-amber-900 border-amber-300",
+    looks:
+      "Staining on the chimney breast in an upstairs room or the loft, sometimes with a white powdery bloom on the brickwork.",
+    happening:
+      "Water getting into the stack, usually through cracked flaunching at the very top or through open pointing, and running down inside it. Less often it is the flashing where the stack meets the roof.",
+    matters:
+      "A saturated stack takes a long time to dry and the salts it carries out damage plaster. Disused stacks are the worst offenders, because there is no warm flue drying them from inside.",
+  },
+  {
+    name: "A puddle sitting on a flat roof",
+    urgency: "Plan for it",
+    urgencyClass: "bg-sky-100 text-sky-900 border-sky-300",
+    looks: "Standing water still there two or more days after rain, often with a tide mark around it.",
+    happening:
+      "The deck was never laid to enough of a fall, or it has sagged between joists. The covering is not the fault, though it will become one.",
+    matters:
+      "Nothing survives being permanently submerged. Recovering the roof without correcting the fall just resets the clock on the same failure, which is why anybody who quotes without mentioning the falls has not looked properly.",
+  },
+  {
+    name: "Moss across the roof",
+    urgency: "Rarely urgent",
+    urgencyClass: "bg-sky-100 text-sky-900 border-sky-300",
+    looks: "Green or grey growth, thickest on north-facing slopes and under overhanging trees.",
+    happening:
+      "Shade and damp. Croydon has heavy tree cover across Shirley, Selsdon, Purley and West Wickham, plus around 33,000 council street trees, so shaded slopes are common here.",
+    matters:
+      "Less than people are told. Moss itself rarely causes leaks. What it does do is shed into gutters and block them, and it holds moisture against the covering. Worth clearing, not worth panicking about, and be wary of anyone who leads with it.",
+  },
+  {
+    name: "Condensation in the loft",
+    urgency: "Worth correcting",
+    urgencyClass: "bg-sky-100 text-sky-900 border-sky-300",
+    looks:
+      "Water beading on the underside of the felt or on the nail points, black spotting on the timbers, damp insulation at the edges. Worst on cold mornings.",
+    happening:
+      "Air cannot move through the roof space. Very often the eaves ventilation was closed off when uPVC soffits were fitted over the original timber without vents.",
+    matters:
+      "It is regularly mistaken for a leak, and sealing the roof up tighter makes it worse rather than better. Correcting the ventilation is straightforward and does not need the roof covering touched.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How do I tell a leak from condensation?",
+    answer:
+      "A leak follows the weather - it appears during or shortly after rain and it has a defined edge. Condensation is more general, worst on cold still mornings, often shows as beads of water on nail points and on the underside of the felt rather than a running trickle, and it turns up alongside black mould spotting on the timbers. If the damp gets worse in a cold dry spell, it is not a leak.",
+  },
+  {
+    question: "Is moss on my roof actually a problem?",
+    answer:
+      "Usually much less than you will be told by anybody knocking on your door about it. Moss does not generally cause leaks. It sheds into gutters and blocks them, and on a shaded slope it keeps the covering damp, both of which are worth dealing with. But moss on its own is not a reason to replace a roof, and a firm that leads with your moss is selling something.",
+  },
+  {
+    question: "Should I get my roof cleaned or pressure washed?",
+    answer:
+      "Be careful. High pressure washing strips the surface finish off concrete tiles and can drive water up under laps, and on older slate it loosens fixings. Clearing moss by hand and treating the roof is a gentler approach. Anybody proposing to jet-wash a Victorian slate roof should be turned down.",
+  },
+  {
+    question: "My neighbour's roof is causing my damp. What can I do?",
+    answer:
+      "This comes up constantly on the terraces in the north of the borough, where gutters and party walls are shared. The first useful step is establishing where the water is physically getting in, which is what a survey does, because an informed conversation with a neighbour goes very differently to a suspicious one. If it does turn out to be their side, you have something concrete to show them.",
+  },
+  {
+    question: "How often should a roof be checked?",
+    answer:
+      "Every couple of years is plenty for most houses, plus a look after any serious gale. Gutters want doing annually, and twice a year on the heavily wooded roads in Shirley, Selsdon, Purley and West Wickham. There is no need for anything more elaborate than that on a sound roof.",
+  },
+  {
+    question: "Somebody knocked on my door and said my roof needs work. Should I believe them?",
+    answer:
+      "Treat it with real suspicion, particularly after a storm. Reputable roofers in this borough are busy enough without cold-calling, and doorstep roofing is a well-established route to being badly overcharged for work that was not needed. Get an independent opinion before agreeing to anything, do not pay up front, and never let anyone start the same day.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: business.url },
+    { "@type": "ListItem", position: 2, name: "Common Roof Problems", item: `${business.url}/common-roof-problems` },
+  ],
+};
+---
+
+<Layout
+  title="Common Roof Problems In Croydon | Roof Repairs Croydon"
+  description="A plain guide to the roof faults that turn up most often on Croydon houses - what each looks like, what is happening, and how urgent it really is."
+  heroImage={heroImg}
+  ogImage={heroImg}
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="relative bg-ink text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate via-ink to-ink" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16 text-center">
+      <nav aria-label="Breadcrumb" class="text-xs text-steel-light/60">
+        <a href="/" class="hover:text-brand-light">Home</a>
+        <span class="mx-2 text-steel">/</span>
+        <span class="text-steel-light">Common Roof Problems</span>
+      </nav>
+      <h1 class="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+        <a href="/" class="text-white hover:text-brand-light transition-colors">Common Roof Problems In Croydon</a>
+      </h1>
+      <h2 class="mt-4 text-xl font-semibold text-brand-light">
+        Can you work out what you are looking at before you ring anyone?
+      </h2>
+      <h3 class="mt-3 text-lg font-semibold text-steel-light">
+        The eight faults that account for most of the roof work in this borough, and how much of a hurry to be in about each
+      </h3>
+      <p class="mt-6 text-lg text-steel-light text-left">
+        Nobody expects a homeowner to diagnose their own roof, and that is what a free survey is
+        for. But there is a real difference between ringing somebody knowing nothing and ringing
+        them with a reasonable idea of what is going on, not least because it makes it much harder
+        for anybody to talk you into work you do not need. What follows is what turns up most
+        often on Croydon roofs, in plain terms. Two of them - condensation and guttering - between
+        them account for a large share of the call-outs where the roof itself turns out to be
+        fine.
+      </p>
+      <div class="mt-10 text-left">
+        <ContactForm page="Common Roof Problems" title="Not sure? Get somebody to look" />
+      </div>
+    </div>
+  </section>
+
+  <StatsBar />
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Eight things that go wrong, and what they mean</h2>
+    <div class="mt-12 space-y-6">
+      {problems.map((p, i) => (
+        <article class="rounded-xl border border-slate/15 bg-white p-6 sm:p-8">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h3 class="text-xl font-bold text-ink">
+              <span class="text-brand mr-2">{String(i + 1).padStart(2, "0")}</span>{p.name}
+            </h3>
+            <span class:list={["rounded-full border px-3 py-1 text-xs font-semibold", p.urgencyClass]}>
+              {p.urgency}
+            </span>
+          </div>
+          <dl class="mt-5 grid md:grid-cols-3 gap-6 text-sm">
+            <div>
+              <dt class="font-semibold text-brand-dark">What it looks like</dt>
+              <dd class="mt-1 text-slate/80">{p.looks}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-brand-dark">What is actually happening</dt>
+              <dd class="mt-1 text-slate/80">{p.happening}</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-brand-dark">Why it matters</dt>
+              <dd class="mt-1 text-slate/80">{p.matters}</dd>
+            </div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <img src={img("roof-repairs-croydon/site/loft-roof-timbers-survey-croydon", 800)}
+          alt="Roof timbers seen from inside a loft during a survey in Croydon"
+          class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+      </div>
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">What you can safely check yourself</h2>
+        <p class="mt-6 text-slate/80">
+          Do not get on the roof. More people are hurt inspecting a roof than are hurt by one, and
+          a roof that has just lost tiles has loose material on it. Everything worth knowing can be
+          established from the ground, from an upstairs window and from inside the loft.
+        </p>
+        <ul class="mt-6 space-y-3 text-slate/80">
+          <li><span class="font-semibold text-ink">From the pavement, with binoculars.</span> Look along the ridge and the hips for a line that is no longer straight, and along the verges for anything lifted or missing. Photograph anything odd.</li>
+          <li><span class="font-semibold text-ink">In the loft, on a bright day, lights off.</span> Daylight where there should not be any tells you where the covering is open. Look at the nail points and the underside of the felt for beads of water.</li>
+          <li><span class="font-semibold text-ink">In the loft, during rain.</span> The single most useful five minutes available to you. You can often see exactly where water is entering and which way it runs.</li>
+          <li><span class="font-semibold text-ink">Outside walls, after a downpour.</span> Green or black vertical stripes mean the gutter above has been overflowing at that point for a long time.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand/5 border-y border-brand/20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <p class="text-xl sm:text-2xl font-semibold text-ink leading-snug">
+        "The two most common things we are called out to in Croydon and find nothing wrong with are
+        moss and old-looking tiles. Neither is a reason on its own to spend money."
+      </p>
+      <p class="mt-4 text-sm text-slate/60">Based on the surveys carried out by {business.name}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Questions about roof problems</h2>
+    <div class="mt-10 max-w-3xl mx-auto divide-y divide-slate/15">
+      {faqs.map((faq) => (
+        <div class="py-6">
+          <h3 class="text-lg font-semibold text-ink">{faq.question}</h3>
+          <p class="mt-2 text-slate/80">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-10 text-center text-slate/70">
+      <span class="mr-2">Straight to the relevant page:</span>
+      <a href="/roof-leak-repairs" class="text-brand-dark font-semibold hover:underline">Leak repairs</a>
+      <span class="mx-2 text-slate/30">·</span>
+      <a href="/guttering" class="text-brand-dark font-semibold hover:underline">Guttering</a>
+      <span class="mx-2 text-slate/30">·</span>
+      <a href="/chimney-repairs" class="text-brand-dark font-semibold hover:underline">Chimney repairs</a>
+      <span class="mx-2 text-slate/30">·</span>
+      <a href="/flat-roof-repairs" class="text-brand-dark font-semibold hover:underline">Flat roofs</a>
+    </p>
+  </section>
+
+  <Reviews />
+
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">Still not sure what you have got?</h2>
+      <p class="mt-6 text-steel-light max-w-2xl mx-auto">
+        That is entirely normal, and it is exactly what a free survey is for. Somebody comes out,
+        goes up, looks in the loft and tells you what has actually gone wrong. No charge for the
+        visit, no obligation afterwards, and a genuine willingness to tell you that nothing needs
+        doing.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+          Call {business.phone}
+        </a>
+        <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+          Book A Free Look
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <NextPage current="/common-roof-problems" />
+</Layout>

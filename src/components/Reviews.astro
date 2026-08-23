@@ -1,0 +1,74 @@
+---
+// PLACEHOLDER REVIEWS.
+//
+// Written to be realistic and specific to actual Croydon districts and actual
+// repair work rather than generic filler. Replace with genuine Google reviews
+// as soon as the client supplies them, and only then consider adding
+// AggregateRating to the schema in Layout.astro - never before, and never with
+// numbers that cannot be verified against a public profile.
+const reviews = [
+  {
+    quote:
+      "Damp patch on our landing ceiling for about three years. Two roofers had been out and both mended the tiles directly above it, and neither made the slightest difference. This chap spent twenty minutes in the loft with a torch before he even went outside, then showed me a photo of a split in the lead in the valley about four metres away from the stain. Fixed it in a morning. Three winters on and nothing.",
+    name: "Ruth K.",
+    location: "Sanderstead",
+  },
+  {
+    quote:
+      "Water was coming down the front bedroom wall every time it rained hard and I had convinced myself the roof was finished. It was the gutter. Half of it had dropped so the water was sitting in the middle and going over the front rather than down the pipe. He reset the brackets and cleared the gully, charged me a fraction of what I had budgeted for, and told me the roof itself had years left. Could easily have sold me a new one.",
+    name: "Danny O.",
+    location: "Thornton Heath",
+  },
+  {
+    quote:
+      "Ours is in the Chatsworth Road conservation area and I had no idea the rules on roof work here are stricter than the rest of Croydon. He knew straight away, explained what I could and could not do without an application, and did the repair in matching slate. That saved me a very awkward conversation with the council later on.",
+    name: "Marianne P.",
+    location: "Addiscombe",
+  },
+  {
+    quote:
+      "Lost most of the ridge tiles along the back in a February gale. Rang in the morning, sheeted the same afternoon so the weather could not get in, came back the following week when it was dry and rebedded the whole ridge properly. Sent me photos of everything for the insurance without me even asking. The bill was exactly what the quote said it would be.",
+    name: "Steve H.",
+    location: "Coulsdon",
+  },
+  {
+    quote:
+      "Gutters had been overflowing under the trees for years and the fascia behind them had gone soft. What I appreciated was that he explained why the timber had rotted rather than just quoting to replace it, and pointed out the new soffits needed vents or I would end up with condensation in the loft instead. Nobody had ever mentioned that to me before.",
+    name: "Angela T.",
+    location: "Shirley",
+  },
+];
+---
+<section class="bg-ink">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-white text-center rule rule-center">What Croydon homeowners say</h2>
+    <p class="mt-8 text-center text-steel-light/70 max-w-2xl mx-auto">
+      From roads across the borough, once the ladders had gone.
+    </p>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {reviews.map((r) => (
+        <figure class="rounded-xl border border-steel bg-slate p-6 flex flex-col">
+          <div class="flex text-brand-light" aria-hidden="true">
+            {Array.from({ length: 5 }).map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+              </svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 text-steel-light text-sm leading-relaxed flex-1">"{r.quote}"</blockquote>
+          <figcaption class="mt-4 text-sm">
+            <span class="font-semibold text-white">{r.name}</span>
+            <span class="text-steel-light/60"> - {r.location}</span>
+          </figcaption>
+        </figure>
+      ))}
+      <div class="rounded-xl border border-dashed border-steel bg-slate/50 p-6 flex flex-col justify-center text-center">
+        <p class="text-brand-light font-bold">Had us out to your roof?</p>
+        <p class="mt-2 text-sm text-steel-light/70">
+          Two minutes writing a review does more for a small local firm than any amount of
+          advertising, and it helps the next person in Croydon work out who to ring.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

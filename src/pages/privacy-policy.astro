@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business } from "../data/business";
+
+// Boilerplate tied to the same legal entity as the other sites this operator
+// runs, which is why it is noindex and excluded from the sitemap. The
+// registered office is hardcoded here on purpose: it is the REGISTERED address,
+// not the trading address in business.ts, and editing business.ts must never
+// silently change it.
+const REGISTERED_OFFICE = "Dorset House, 5 Church Street, Wimborne, Dorset, BH21 1JH";
+const lastUpdated = "23 August 2026";
+---
+
+<Layout
+  title="Privacy Policy | Roof Repairs Croydon"
+  description="How Roof Repairs Croydon collects, uses and stores the personal data you send through this website."
+  noindex={true}
+>
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <h1 class="text-4xl font-bold tracking-tight">
+        <a href="/" class="text-white hover:text-brand-light transition-colors">Privacy Policy</a>
+      </h1>
+      <h2 class="mt-4 text-lg font-semibold text-brand-light">How we handle your information</h2>
+      <h3 class="mt-2 text-base font-semibold text-steel-light">Last updated {lastUpdated}</h3>
+    </div>
+  </section>
+
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 prose prose-stone prose-a:text-brand-dark">
+    <h2>Who controls your data</h2>
+    <p>
+      This website trades as {business.name}. It is owned and operated by {business.siteOperator.name},
+      company number {business.siteOperator.companyNumber}, registered office {REGISTERED_OFFICE}.
+      {business.siteOperator.name} is the data controller for information submitted through this
+      site.
+    </p>
+    <p>
+      When you ask for a survey or a quote, your enquiry is passed to the roofing company that
+      carries out the work. That company acts as a separate data controller for the purposes of
+      quoting for and carrying out roofing work, and you will be told who they are before any
+      agreement is made.
+    </p>
+
+    <h2>What we collect</h2>
+    <p>Through the enquiry forms on this site we collect:</p>
+    <ul>
+      <li>your name;</li>
+      <li>your email address;</li>
+      <li>your telephone number;</li>
+      <li>the service you have selected, and any detail you add;</li>
+      <li>the page the enquiry was sent from.</li>
+    </ul>
+    <p>
+      We do not use analytics cookies, advertising cookies or third-party trackers on this site,
+      and there is no cookie banner because there is nothing to consent to.
+    </p>
+
+    <h2>How we use it</h2>
+    <p>
+      Solely to respond to your enquiry: to contact you, arrange a survey, prepare a quote and, if
+      you go ahead, carry out and guarantee the work. We do not sell your data, we do not share it
+      with unrelated third parties, and we do not add you to a marketing list on the strength of an
+      enquiry.
+    </p>
+
+    <h2>Legal basis</h2>
+    <p>
+      For responding to an enquiry, our legal basis is legitimate interests - you have asked us to
+      get in touch and it is reasonable for us to do so. Once you engage us for work, the basis
+      becomes performance of a contract. Where we keep records to support a guarantee, the basis is
+      again legitimate interests together with our legal obligations.
+    </p>
+
+    <h2>Who your information is shared with</h2>
+    <ul>
+      <li>
+        <strong>Web3Forms</strong>, which processes the form submission and delivers it to us by
+        email. Their privacy terms are published at web3forms.com.
+      </li>
+      <li>
+        <strong>The roofing contractor</strong> who surveys, quotes for and carries out the work.
+      </li>
+      <li>
+        <strong>Our email provider</strong>, which stores the message in the ordinary course.
+      </li>
+    </ul>
+    <p>We do not transfer your data outside the UK or the EEA for any other purpose.</p>
+
+    <h2>How long we keep it</h2>
+    <p>
+      Enquiries that do not become work are deleted within 12 months. Where work is carried out, we
+      keep the record for the duration of the workmanship guarantee plus a further period to cover
+      any claim arising from it, because a guarantee cannot be honoured without a record of the job.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>Under UK GDPR you have the right to:</p>
+    <ul>
+      <li>ask what personal data we hold about you and get a copy of it;</li>
+      <li>have inaccurate data corrected;</li>
+      <li>ask us to erase your data where we have no continuing reason to keep it;</li>
+      <li>restrict or object to our processing;</li>
+      <li>ask for your data in a portable format;</li>
+      <li>withdraw consent where consent was the basis for processing.</li>
+    </ul>
+    <p>
+      To exercise any of these, email
+      {" "}<a href={`mailto:${business.email}`}>{business.email}</a>. We will respond within one
+      month.
+    </p>
+
+    <h2>Complaints</h2>
+    <p>
+      If you are unhappy with how we have handled your data, please tell us first so we have the
+      chance to put it right. You also have the right to complain to the Information Commissioner's
+      Office at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>,
+      or on 0303 123 1113.
+    </p>
+
+    <h2>Security</h2>
+    <p>
+      This site is served over HTTPS and form submissions are encrypted in transit. Access to
+      enquiry data is limited to the people who need it to respond to you and to carry out the
+      work.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      {business.siteOperator.name}, {REGISTERED_OFFICE}.<br />
+      Email: <a href={`mailto:${business.email}`}>{business.email}</a><br />
+      Telephone: <a href={business.phoneHref}>{business.phone}</a>
+    </p>
+  </article>
+</Layout>

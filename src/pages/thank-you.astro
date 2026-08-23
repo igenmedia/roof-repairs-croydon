@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { business } from "../data/business";
+---
+
+<Layout
+  title="Thank You | Roof Repairs Croydon"
+  description="Thanks for getting in touch with Roof Repairs Croydon. We will be in contact shortly to arrange your free roof survey."
+  noindex={true}
+>
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mx-auto h-16 w-16 text-brand-light" aria-hidden="true">
+        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 7.53-5.25 6a.75.75 0 0 1-1.14-.02l-2.25-2.75a.75.75 0 1 1 1.16-.95l1.68 2.05 4.68-5.35a.75.75 0 1 1 1.12.99Z" clip-rule="evenodd" />
+      </svg>
+      <h1 class="mt-6 text-4xl sm:text-5xl font-bold tracking-tight">
+        <a href="/" class="text-white hover:text-brand-light transition-colors">Thanks - Message Received</a>
+      </h1>
+      <h2 class="mt-4 text-xl font-semibold text-brand-light">Somebody will be in touch shortly</h2>
+      <h3 class="mt-3 text-lg font-semibold text-steel-light">Usually the same working day, and always within one</h3>
+      <p class="mt-6 text-steel-light">
+        We will ring to ask a couple of questions and arrange a time to come and look. If your
+        problem is urgent and you would rather not wait for that call, ring straight through on
+        {" "}<a href={business.phoneHref} class="font-semibold text-white hover:text-brand-light">{business.phone}</a>.
+      </p>
+      <p class="mt-4 text-steel-light">
+        While you are waiting, the
+        {" "}<a href="/common-roof-problems" class="font-semibold text-white hover:text-brand-light underline">roof problems guide</a>
+        {" "}covers what most of these turn out to be, and the
+        {" "}<a href="/roof-repair-cost" class="font-semibold text-white hover:text-brand-light underline">cost guide</a>
+        {" "}gives you honest bands so nothing in the quote comes as a surprise.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white hover:bg-brand-light hover:text-ink">
+          Call {business.phone}
+        </a>
+        <a href="/" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+          Back To The Homepage
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,59 @@
+---
+import { business } from "../data/business";
+
+// The 10 year workmanship guarantee is the client's figure. It is worded as a
+// guarantee carried by the work rather than "we guarantee", because the work is
+// carried out by the roofing contractor, not by the operator of this website.
+//
+// The materials slot deliberately carries no number. Manufacturer cover varies
+// by product, so one headline figure would be wrong on most jobs. Do not add
+// one without a specific manufacturer to attach it to.
+const years = business.workmanshipGuaranteeYears;
+---
+<section class="bg-slate text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold rule">The {years} year guarantee, and why it is safe to offer</h2>
+      <p class="mt-6 text-steel-light">
+        Promising a roof will stay dry is easy. What counts is what happens if it does not. Work
+        booked through {business.name} carries a {years} year workmanship guarantee, on paper,
+        handed to you on the day and written in language you can actually read. The slates, tiles,
+        lead, mortar, membranes and rainwater goods carry their own manufacturer cover on top of
+        that. It varies by product, so you get told which cover applies to your job rather than one
+        headline number that would be wrong on most of them.
+      </p>
+      <p class="mt-4 text-steel-light">
+        Here is the reason a guarantee like that is not a risk. Repairs come back for one reason
+        above all others: the fault was never found in the first place. Somebody went up, saw a
+        stain on the ceiling below, mended whatever looked worst directly above it, and left.
+        Water does not cooperate with that approach. It lands on a slate, runs under it, drops onto
+        a rafter and travels along the rafter before it finds anywhere to fall. On a wide hipped
+        roof in Sanderstead or Shirley that can be five metres from where it came in.
+      </p>
+      <p class="mt-4 text-steel-light">
+        Find the entry point and the repair holds for years. Miss it and no amount of guarantee
+        wording helps anybody. That is why the survey happens before the price, and it is why, if
+        the same water finds its way back into your house inside the guarantee period, putting it
+        right costs you nothing.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="rounded-xl border border-brand/40 bg-ink p-6 text-center">
+        <p class="text-3xl font-bold text-brand-light leading-tight">{years} year</p>
+        <p class="mt-2 text-sm font-semibold text-white uppercase tracking-wide">Workmanship guarantee</p>
+      </div>
+      <div class="rounded-xl border border-brand/40 bg-ink p-6 text-center">
+        <p class="text-3xl font-bold text-brand-light leading-tight">{business.repairsCompleted}</p>
+        <p class="mt-2 text-sm font-semibold text-white uppercase tracking-wide">Roofs put right</p>
+      </div>
+      <div class="rounded-xl border border-steel bg-ink p-6 text-center">
+        <p class="text-2xl font-bold text-white leading-tight">Covered</p>
+        <p class="mt-2 text-sm font-semibold text-steel-light uppercase tracking-wide">Public liability insurance</p>
+      </div>
+      <div class="rounded-xl border border-steel bg-ink p-6 text-center">
+        <p class="text-2xl font-bold text-white leading-tight">Per product</p>
+        <p class="mt-2 text-sm font-semibold text-steel-light uppercase tracking-wide">Maker's own warranty</p>
+      </div>
+    </div>
+  </div>
+</section>

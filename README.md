@@ -38,19 +38,16 @@ repo and nothing is hotlinked from Pexels. See `src/data/business.ts` for the
 
 ## Outstanding before launch
 
-1. **Web3Forms access key** - `business.web3formsAccessKey` is a placeholder.
-   Generate a real key against info@roofrepairscroydon.co.uk. The contact forms
-   will not deliver until this is done.
-2. **Roofing company details** - `business.contractor` is empty. The footer and
+1. **Roofing company details** - `business.contractor` is empty. The footer and
    terms page fall back to neutral wording until the name and company number are
    confirmed at Companies House.
-3. **Social profiles** - `business.socials` is empty, so `sameAs` is omitted from
+2. **Social profiles** - `business.socials` is empty, so `sameAs` is omitted from
    the schema and the footer icon row is hidden. Add the Google Business Profile
    first; it matters more than the rest combined.
-4. **Real reviews** - `src/components/Reviews.astro` carries five clearly marked
+3. **Real reviews** - `src/components/Reviews.astro` carries five clearly marked
    placeholders. Replace with genuine reviews, and only then consider adding
    `AggregateRating` to the schema.
-5. **Client photographs** - `images/raw/` is empty, so every image is licensed
+4. **Client photographs** - `images/raw/` is empty, so every image is licensed
    stock used illustratively. No gallery claims the work as the client's own.
    Add a real gallery once job photos are available.
 

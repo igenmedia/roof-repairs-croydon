@@ -3,7 +3,6 @@
 // OUTSTANDING - client still to supply:
 //   - the registered company name and number for the roofing contractor
 //     (see `contractor` below; the footer degrades gracefully until it lands)
-//   - a real Web3Forms access key, generated against info@roofrepairscroydon.co.uk
 //   - social profile and Google Business Profile URLs (see `socials`)
 //   - genuine customer reviews (see src/components/Reviews.astro)
 //
@@ -91,9 +90,10 @@ export const business = {
   // listing does more for rankings than every social profile put together.
   socials: [] as { name: string; url: string }[],
 
-  // TODO(client): replace with a real key generated at web3forms.com against
-  // info@roofrepairscroydon.co.uk. The form will not deliver until this is done.
-  web3formsAccessKey: "REPLACE_WITH_WEB3FORMS_ACCESS_KEY",
+  // Public access key, generated at web3forms.com against
+  // info@roofrepairscroydon.co.uk. Not a secret - it ships in the form markup
+  // by design, which is why it lives here rather than in an env var.
+  web3formsAccessKey: "51cf2c01-fe0d-486e-adc1-dc46d87ec631",
 
   get sameAs(): string[] {
     return this.socials.map((s) => s.url);

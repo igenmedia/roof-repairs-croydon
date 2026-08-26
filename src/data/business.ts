@@ -3,7 +3,7 @@
 // OUTSTANDING - client still to supply:
 //   - the registered company name and number for the roofing contractor
 //     (see `contractor` below; the footer degrades gracefully until it lands)
-//   - social profile and Google Business Profile URLs (see `socials`)
+//   - the Google Business Profile URL (see `socials`)
 //   - genuine customer reviews (see src/components/Reviews.astro)
 //
 // DELIBERATELY NOT SET: a materials / supplier guarantee length. It varies by
@@ -84,11 +84,23 @@ export const business = {
   ],
 
   // Feeds `sameAs` in the RoofingContractor schema and the footer icon row, so
-  // the two can never drift apart. Empty until the client confirms live
-  // profiles - an invented URL in `sameAs` is worse than no `sameAs` at all.
-  // Chase the Google Business Profile first: for a local trade site that single
-  // listing does more for rankings than every social profile put together.
-  socials: [] as { name: string; url: string }[],
+  // the two can never drift apart.
+  //
+  // URLs are normalised to their canonical form deliberately: no tracking
+  // parameters, no sub-tabs, no trailing fragments. Google treats `sameAs`
+  // entries as entity identifiers, so `x.com/roofrepaircr?s=11` and
+  // `linkedin.com/company/.../about/` are worth less than the clean root URL.
+  //
+  // STILL MISSING: the Google Business Profile. For a local trade site that one
+  // listing does more for rankings than all five of these put together, because
+  // it is what drives the Maps pack. Worth chasing before anything else.
+  socials: [
+    { name: "Facebook", url: "https://www.facebook.com/profile.php?id=61593944904533" },
+    { name: "X", url: "https://x.com/roofrepaircr" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/roof-repairs-croydon/" },
+    { name: "YouTube", url: "https://www.youtube.com/@RoofRepairsCroydon-c9x" },
+    { name: "Pinterest", url: "https://uk.pinterest.com/RoofRepairsCroydon/" },
+  ],
 
   // Public access key, generated at web3forms.com against
   // info@roofrepairscroydon.co.uk. Not a secret - it ships in the form markup

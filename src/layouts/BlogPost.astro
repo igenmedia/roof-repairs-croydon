@@ -8,10 +8,11 @@ interface Props {
   heroImage: string;
   heroImageAlt: string;
   pubDate: Date;
+  video?: { id: string; title: string; uploadDate: Date; duration: string };
   faqs?: { question: string; answer: string }[];
 }
 
-const { title, description, heroImage, heroImageAlt, pubDate, faqs = [] } = Astro.props;
+const { title, description, heroImage, heroImageAlt, pubDate, video, faqs = [] } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString("en-GB", {
   day: "numeric",
@@ -35,6 +36,24 @@ const articleSchema = {
 };
 
 const schema: Record<string, unknown>[] = [articleSchema];
+if (video) {
+  schema.push({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description,
+    thumbnailUrl: `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`,
+    uploadDate: video.uploadDate.toISOString(),
+    duration: video.duration,
+    embedUrl: `https://www.youtube.com/embed/${video.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${video.id}`,
+    publisher: {
+      "@type": "Organization",
+      name: business.name,
+      logo: { "@type": "ImageObject", url: `${business.url}/images/roof-repairs-croydon-logo.svg` },
+    },
+  });
+}
 if (faqs.length) {
   schema.push({
     "@context": "https://schema.org",

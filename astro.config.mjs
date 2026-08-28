@@ -9,6 +9,8 @@ export default defineConfig({
 
   trailingSlash: 'never',
 
+  server: { port: Number(process.env.PORT) || 4321 },
+
   vite: {
     plugins: [tailwindcss()]
   },

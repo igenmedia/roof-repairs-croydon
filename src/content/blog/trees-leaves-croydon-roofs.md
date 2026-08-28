@@ -4,6 +4,11 @@ description: "Croydon is one of London's leafiest boroughs, and its roofs pay fo
 pubDate: 2026-08-27
 heroImage: "/images/blog/tree-lined-suburban-streets-croydon-autumn.webp"
 heroImageAlt: "Aerial view of tree-lined suburban streets and rooftops in Croydon during autumn"
+video:
+  id: "HgqrQsQgT0U"
+  title: "Trees, Leaves And Croydon Roofs: The Damage Nobody Sees"
+  uploadDate: 2026-08-27
+  duration: "PT43S"
 faqs:
   - question: "How often should gutters be cleared on a Croydon house with trees nearby?"
     answer: "Once a year is enough for most houses, but on a street of mature planes or limes, or anywhere backing onto the woodland at Croham Hurst, Addington Hills or Shirley, twice is more realistic - one clearance in late autumn once the fall has finished, and a check in spring for seed and blossom debris. What matters more than frequency is doing it after the leaves are down rather than in the middle of the fall."
@@ -28,6 +33,12 @@ Very little of what comes off a tree stays on the tiles. A pitched slope sheds l
 That means four places, in order of how expensive they are to get wrong: valleys, behind chimney stacks, in the gutters, and in the hopper heads at the top of the downpipes. Flat roofs over bay windows and rear extensions collect everywhere at once, because they have nowhere to shed to.
 
 None of those four is visible from the pavement, and only one of them - the gutter - is visible from an upstairs window. That is the entire problem in a sentence. If you want a simple annual job that prevents most of what follows in this article, it is a proper [gutter and downpipe clearance](/guttering) once the leaves are down.
+
+Here is the short version, if you would rather watch than read:
+
+<div style="position:relative;padding-top:56.25%;margin:2rem 0;border-radius:0.5rem;overflow:hidden;background:#000;">
+  <iframe src="https://www.youtube-nocookie.com/embed/HgqrQsQgT0U" title="Trees, Leaves And Croydon Roofs: The Damage Nobody Sees" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+</div>
 
 ## Valleys are the expensive one
 

@@ -9,6 +9,14 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     heroImage: z.string(),
     heroImageAlt: z.string(),
+    video: z
+      .object({
+        id: z.string(),
+        title: z.string(),
+        uploadDate: z.coerce.date(),
+        duration: z.string(),
+      })
+      .optional(),
     faqs: z.array(
       z.object({
         question: z.string(),

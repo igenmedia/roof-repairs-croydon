@@ -2,7 +2,7 @@
 title: "Repair Or Replace? Is Your Croydon Roof Actually Finished?"
 description: "Most roofs condemned as beyond repair have years left in them. How to tell a roof that needs a day's work from one that is genuinely finished."
 pubDate: 2026-08-23
-heroImage: "https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/blog/worn-old-roof-tiles-croydon-house"
+heroImage: "/images/roof-repairs-croydon-blog-worn-old-roof-tiles-croydon-house-w900.webp"
 heroImageAlt: "Weathered and mossy concrete roof tiles on a house in the Croydon area"
 faqs:
   - question: "How do I know if I need a new roof or just a repair?"
@@ -21,7 +21,7 @@ Nearly every roofer will tell you that most roofs they are asked to replace do n
 
 If you take one thing from this, take this. When slates start sliding off your roof with no wind, no storm and nothing else to explain it, the roof is telling you that its fixings have gone. The trade calls it nail sickness, and it is the clearest genuine case for replacement there is.
 
-<img src="https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/blog/slate-roof-tile-detail-croydon" alt="Close detail of an aged slate roof covering in Croydon" width="900" height="600" loading="lazy" />
+<img src="/images/roof-repairs-croydon-blog-slate-roof-tile-detail-croydon-w900.webp" alt="Close detail of an aged slate roof covering in Croydon" width="900" height="600" loading="lazy" />
 
 What happens is that the nails holding each slate corrode through over decades. Once that process has run across a slope, every slate up there is being held by friction and by its neighbours rather than by anything positive. Replacing individual slates does nothing, because the ones you are not replacing are all at the same stage. You are not fixing a fault, you are queueing.
 
@@ -31,7 +31,7 @@ This is overwhelmingly a north-of-the-borough problem, because that is where the
 
 Moss is the great false alarm. It is dark, it is visible from the pavement, it photographs beautifully for a doorstep salesman, and it very rarely causes leaks. What it actually does is shed into gutters and block them, and hold moisture against the covering on shaded slopes.
 
-<img src="https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/site/moss-on-slate-roof-shaded-slope-croydon" alt="Moss growing on a shaded slate roof slope in Croydon" width="900" height="600" loading="lazy" />
+<img src="/images/roof-repairs-croydon-site-moss-on-slate-roof-shaded-slope-croydon-w900.webp" alt="Moss growing on a shaded slate roof slope in Croydon" width="900" height="600" loading="lazy" />
 
 Croydon has more of it than most boroughs because it has a great deal of tree cover. The council looks after somewhere around 33,000 street trees, and Shirley, Selsdon, Purley and West Wickham run up into serious mature planting. North-facing slopes under that canopy will moss up whatever you do.
 
@@ -43,7 +43,7 @@ The other false alarm is simply looking old. A concrete tile roof loses its surf
 
 The covering is the part everyone looks at, and it is often not the part that decides the question. Battens, felt and rafters are what actually hold a roof together, and they are only inspectable from inside.
 
-<img src="https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/blog/roof-stripped-to-battens-croydon" alt="Roof timbers and battens exposed during roof work in Croydon" width="900" height="600" loading="lazy" />
+<img src="/images/roof-repairs-croydon-blog-roof-stripped-to-battens-croydon-w900.webp" alt="Roof timbers and battens exposed during roof work in Croydon" width="900" height="600" loading="lazy" />
 
 If the battens have gone soft, no amount of good covering laid over them will stay put, because there is nothing solid to nail into. If rafters have rotted where water has been running for years, that is a structural repair rather than a roofing one, and it needs establishing before anyone prices a covering. And if the sarking felt below the tiles has perished into strips, the roof has lost its second line of defence even though it looks intact from outside. All of which is why a quote produced without anyone going into the loft is not worth much. It is also why an honest quote states what has been assumed about the condition underneath and what happens if that assumption turns out to be wrong, rather than leaving it as an open-ended risk that surfaces on day two.
 
@@ -51,7 +51,7 @@ If the battens have gone soft, no amount of good covering laid over them will st
 
 There is a point at which repairing stops making sense, and it is not usually dramatic. It arrives quietly, as a fourth invoice in five years for a different part of the same roof.
 
-<img src="https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/blog/household-budget-planning-croydon" alt="Working out the cost of roof repairs against replacement" width="900" height="600" loading="lazy" />
+<img src="/images/roof-repairs-croydon-blog-household-budget-planning-croydon-w900.webp" alt="Working out the cost of roof repairs against replacement" width="900" height="600" loading="lazy" />
 
 The way to think about it is cost per year of remaining life. A four hundred pound repair that buys fifteen years is excellent value. The same four hundred pounds on a roof that will need the same again next winter is not. Once you have paid three or four times, the running total is approaching what one proper job would have cost, and you have had the disruption three or four times over.
 
@@ -61,7 +61,7 @@ Access sharpens this considerably. On many Croydon roofs, getting somebody safel
 
 If a full replacement is genuinely on the table, it brings something with it that a repair never does: the chance to fix everything above the ceiling at once. That is worth factoring in, because it partly offsets the cost.
 
-<img src="https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/blog/loft-insulation-roof-space-croydon" alt="Roof space and loft interior in a Croydon house" width="900" height="600" loading="lazy" />
+<img src="/images/roof-repairs-croydon-blog-loft-insulation-roof-space-croydon-w900.webp" alt="Roof space and loft interior in a Croydon house" width="900" height="600" loading="lazy" />
 
 Renewing more than about a quarter of a roof's area is normally notifiable work, because a roof counts as a thermal element under <a href="https://www.gov.uk/government/publications/conservation-of-fuel-and-power-approved-document-l" target="_blank" rel="noopener noreferrer">Approved Document L</a>. In practice that means insulation and ventilation get brought up to current standards as part of the job whether you were planning it or not.
 
@@ -71,7 +71,7 @@ The ventilation half of that is more valuable than people expect. A great many C
 
 Age expectations depend entirely on what your roof is made of, and in Croydon that correlates closely with where you live.
 
-<img src="https://res.cloudinary.com/dj6fnojch/image/upload/f_auto,q_auto:good,w_900,c_limit/roof-repairs-croydon/blog/aerial-view-croydon-housing-estate" alt="Aerial view of housing across the Croydon area" width="900" height="600" loading="lazy" />
+<img src="/images/roof-repairs-croydon-blog-aerial-view-croydon-housing-estate-w900.webp" alt="Aerial view of housing across the Croydon area" width="900" height="600" loading="lazy" />
 
 Natural slate on the Victorian terraces can run 80 to 100 years or more, with the fixings the limiting factor rather than the material. Concrete tile on the interwar semis across Shirley, Selsdon, Sanderstead, Coulsdon and Purley typically gives 50 to 60 years, which means a great many of those roofs are now at or approaching the end of a first covering. Flat roofs are shorter: around 20 years for good three layer felt, 30 or more for EPDM rubber, and in every case the falls matter more than the material, because nothing survives standing water.
 

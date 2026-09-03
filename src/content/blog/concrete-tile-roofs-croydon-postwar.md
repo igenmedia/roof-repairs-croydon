@@ -4,6 +4,11 @@ description: "Much of Croydon was re-roofed in concrete tiles after the war and 
 pubDate: 2026-09-02
 heroImage: "/images/blog/interwar-semis-aerial-croydon-suburbs.webp"
 heroImageAlt: "Aerial view of Croydon suburban roofs covered in tiles"
+video:
+  id: "ujm_Pc4lOe0"
+  title: "Concrete Tiles On Croydon Roofs: Spotting A Postwar Roof That's Finished"
+  uploadDate: 2026-09-03
+  duration: "PT38S"
 faqs:
   - question: "How long do concrete roof tiles last?"
     answer: "Manufacturers have generally worked to something like a sixty-year design life, and plenty of concrete tiles beat it. The catch is that the tile is rarely what fails first - nails, battens and the felt beneath usually give up somewhere between forty and sixty years, which is why a roof can look intact from the pavement while its fixings are done."
@@ -18,6 +23,21 @@ faqs:
 ---
 
 Stand on any high ground in the borough - the ridge at Shirley Hills, or the upper floors of anything in central Croydon - and the roofscape below is mostly concrete. Not the pretty part of the story, but the true one. Croydon took more flying bombs in the summer of 1944 than any other London borough, and the rebuilding, the estate expansion that followed, and a second wave of re-roofing through the 1960s and 70s all happened during the decades when concrete tile was the default British roof covering. Those roofs were designed around a sixty-year life. The earliest are now past it, and the 1970s ones are arriving. This is how to work out where yours sits: what a concrete tile is, what wears out first, and why the answer is usually less alarming than it sounds.
+
+<div class="my-8">
+  <div class="relative w-full overflow-hidden rounded-lg bg-zinc-900" style="aspect-ratio: 16 / 9;">
+    <iframe
+      class="absolute inset-0 h-full w-full"
+      src="https://www.youtube-nocookie.com/embed/ujm_Pc4lOe0"
+      title="Concrete Tiles On Croydon Roofs: Spotting A Postwar Roof That's Finished"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="mt-3 text-sm text-slate/50">Watch: spotting a postwar concrete tile roof that's reaching the end of its life.</p>
+</div>
 
 ## How Croydon ended up under so much concrete
 

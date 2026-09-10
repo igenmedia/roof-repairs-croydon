@@ -9,6 +9,7 @@ import StatsBar from "../components/StatsBar.astro";
 import Reviews from "../components/Reviews.astro";
 import Guarantee from "../components/Guarantee.astro";
 import NextPage from "../components/NextPage.astro";
+import VideoFeature from "../components/VideoFeature.astro";
 
 const heroPublicId = "roof-repairs-croydon/site/roof-repairs-croydon-victorian-terrace-chimneys";
 const heroImg = img(heroPublicId, 1200);
@@ -128,6 +129,34 @@ const councilGroups = [
     note: "Feels like Croydon from the Shirley side. Is not Croydon for anything official.",
   },
 ];
+
+const homeVideo = {
+  id: "5G7HCTJJzK0",
+  title: "What A London Summer Does To A Croydon Roof",
+  description:
+    "Croydon sits in the hottest corner of the country and its roofs run hotter still. What a July heatwave quietly does to tiles, felt and lead, and why the bill lands in autumn.",
+  uploadDate: "2026-09-10T12:15:10Z",
+  duration: "PT42S",
+  poster: "/images/roof-repairs-croydon-video-london-summer-heat-roof.webp",
+};
+
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: homeVideo.title,
+  description: homeVideo.description,
+  thumbnailUrl: `${business.url}${homeVideo.poster}`,
+  uploadDate: homeVideo.uploadDate,
+  duration: homeVideo.duration,
+  embedUrl: `https://www.youtube-nocookie.com/embed/${homeVideo.id}`,
+  contentUrl: `https://www.youtube.com/watch?v=${homeVideo.id}`,
+  publisher: {
+    "@type": "Organization",
+    name: business.name,
+    logo: { "@type": "ImageObject", url: `${business.url}/images/roof-repairs-croydon-logo.svg` },
+  },
+};
+
 ---
 
 <Layout
@@ -135,7 +164,7 @@ const councilGroups = [
   description="Roof repairs in Croydon. Leaks traced properly, emergency call-outs, storm damage, flat roofs, chimneys and guttering. Free survey, 10 year guarantee."
   heroImage={heroImg}
   ogImage={heroImg}
-  schema={[faqSchema]}
+  schema={[faqSchema, videoSchema]}
 >
   <!-- Hero -->
   <section class="relative bg-ink text-white overflow-hidden">
@@ -370,6 +399,21 @@ const councilGroups = [
   </section>
 
   <Reviews />
+
+  <VideoFeature
+    videoId={homeVideo.id}
+    videoTitle={homeVideo.title}
+    poster={homeVideo.poster}
+    posterAlt="Croydon rooftops under strong summer sun, the conditions that expand and contract a roof covering all day"
+    eyebrow="Worth Two Minutes"
+    heading="What A London Summer Does To A Croydon Roof"
+    body={[
+      "Almost everything written about roof damage is about winter. That leaves out July, which is a strange gap in a borough that holds the record for the warmest night ever measured in this country - 25.8 degrees at Kenley, during the 2022 heatwave.",
+      "Heat does not throw tiles into the garden, so nobody connects the two. It works by expansion and contraction, day after day, and the damage only announces itself when the first proper autumn downpour finds the gaps it opened up.",
+    ]}
+    href="/blog/london-summer-heat-croydon-roofs"
+    linkText="Read The Full Article"
+  />
 
   <!-- Blog -->
   {posts.length > 0 && (

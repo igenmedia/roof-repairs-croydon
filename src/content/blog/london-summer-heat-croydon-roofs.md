@@ -4,6 +4,11 @@ description: "Croydon sits in the hottest corner of the country, and Kenley set 
 pubDate: 2026-09-08
 heroImage: "/images/roof-repairs-croydon-site-croydon-rooftops-chimney-stacks-skyline-w800.webp"
 heroImageAlt: "Croydon rooftops and chimney stacks under a bright summer sky"
+video:
+  id: "5G7HCTJJzK0"
+  title: "What A London Summer Does To A Croydon Roof"
+  uploadDate: 2026-09-10
+  duration: "PT42S"
 faqs:
   - question: "Can hot weather actually damage a roof in Croydon?"
     answer: "Yes, though rarely in a single afternoon. Heat works by repetition. Every hot day expands the tiles, the lead, the felt and the plastic gutters, and every cool night pulls them back. Over a few summers that cycle cracks mortar on ridges and verges, fatigues lead at its fixings and opens laps on felt flat roofs. The damage usually shows up as a leak in the first heavy rain of autumn rather than during the heatwave itself."
@@ -18,6 +23,12 @@ faqs:
 ---
 
 Everyone writes about what winter does to a roof. Frost, storms, blocked gutters, the usual list. Almost nobody writes about July, and in Croydon that is a gap, because this borough sits in the hottest corner of a warming country. During the heatwave of 19 July 2022, when the UK passed 40 degrees for the first time, the Met Office station at Kenley Airfield recorded a night that never dropped below 25.8 degrees, which was at that point the warmest night the country had ever measured. That station is inside the borough. So are around 390,000 people and their roofs, most of which were built long before anyone expected weather like that. Heat does not blow tiles off. It works slowly, by expansion and contraction, and it sends the bill in with the first autumn storm. Here is what it is doing up there while you are indoors with the curtains shut.
+
+Here is the short version, if you would rather watch than read:
+
+<div style="position:relative;padding-top:56.25%;margin:2rem 0;border-radius:0.5rem;overflow:hidden;background:#000;">
+  <iframe src="https://www.youtube-nocookie.com/embed/5G7HCTJJzK0" title="What A London Summer Does To A Croydon Roof" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+</div>
 
 ## Croydon's roofs run hotter than the country's
 

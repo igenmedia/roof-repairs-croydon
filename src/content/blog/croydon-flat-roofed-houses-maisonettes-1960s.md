@@ -45,7 +45,7 @@ Then, in most cases, there is the insulation - or rather its absence. Where anyt
 
 The single biggest reason these roofs get discovered late is that nobody looks at them. A tiled front slope announces its problems to the whole road. A flat roof over a back addition is visible only from an upstairs rear window, and often not even from there.
 
-<img src="/images/blog/aerial-flat-roofs-rear-additions-croydon.webp" alt="Aerial view of flat roofs over the rear additions of terraced houses near Croydon" width="800" height="600" loading="lazy" />
+<img src="/images/blog/flat-roof-hidden-behind-pitched-roofs-croydon-aerial.webp" alt="Looking straight down on a large flat roof tucked in behind pitched tiled roofs and back gardens, where nobody at street level ever sees it" width="900" height="527" loading="lazy" />
 
 When you do get up there, the faults arrive in a familiar order. Ponding comes first: standing water sitting in a hollow days after the rain stopped, because the falls were never steep enough or the deck has since sagged between joists. Current guidance works to a minimum finished fall of 1 in 80, with more designed in to allow for deflection, and a lot of 1960s roofs were laid closer to dead level from the start. Standing water is not itself a leak, but it doubles the work the covering has to do and finds every weak seam.
 
@@ -57,7 +57,7 @@ The one that ends the argument is a soft deck. Walk the roof slowly and it feels
 
 This is the fault worth understanding before you spend anything, because it sends people down the wrong road for years.
 
-<img src="/images/blog/damp-staining-cold-roof-condensation-croydon.webp" alt="Dark damp staining spreading across a surface, the pattern left by cold roof condensation in a Croydon house" width="800" height="600" loading="lazy" />
+<img src="/images/blog/washing-drying-indoors-moisture-cold-roof-croydon.webp" alt="Washing hung out to dry on an indoor airer, one of the everyday sources of moisture that ends up condensing in a cold roof void" width="900" height="594" loading="lazy" />
 
 In a cold roof, the void between the ceiling insulation and the underside of the deck is meant to be cross-ventilated so that any moist air reaching it is carried away. In practice, 1960s roofs over kitchens and bathrooms were frequently built with no ventilation path at all, and later recovering sealed up what little there was. Warm air carrying moisture from cooking, showering and drying washing gets into that void, hits a deck that is at outside temperature, and condenses on the underside.
 

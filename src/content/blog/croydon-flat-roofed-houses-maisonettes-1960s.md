@@ -35,7 +35,7 @@ Cut into one and the build-up is the same four things nearly every time, in the 
 
 At the bottom are joists, spanning the short way across a small addition or the full width of a maisonette. On top of the joists sits the deck, and this is the part that decides the roof's fate. Early 1960s roofs often used tongue-and-groove softwood boards, which cope reasonably well with a wetting. From the mid-1960s onwards chipboard took over because it was cheaper and faster to lay, and chipboard has no tolerance for moisture at all. Once water finds it, it swells, loses all strength and turns to something with the consistency of wet cereal.
 
-<img src="/images/blog/chipboard-roof-deck-texture-croydon-flat-roof.webp" alt="Close-up of a chipboard and OSB timber deck of the type used on 1960s Croydon flat roofs" width="800" height="534" loading="lazy" />
+<img src="/images/blog/timber-deck-board-cut-1960s-flat-roof-croydon.webp" alt="A sheet of layered timber board being cut on a saw bench, the kind of decking material laid over flat roof joists" width="900" height="643" loading="lazy" />
 
 Over the deck went built-up roofing felt, typically three layers of bitumen-impregnated material bonded in hot bitumen, finished with stone chippings to take the worst of the sun off. The felts of that era were bitumen on an organic or glass fibre base, nothing like the polymer-modified sheets used now, and they went brittle with age rather than staying flexible.
 

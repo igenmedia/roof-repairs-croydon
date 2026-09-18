@@ -4,6 +4,11 @@ description: "Thousands of Croydon's Victorian and Edwardian houses still carry 
 pubDate: 2026-09-15
 heroImage: "/images/roof-repairs-croydon-site-water-pouring-off-blocked-gutter-croydon-w800.webp"
 heroImageAlt: "Water pouring off the edge of a roof past a failed gutter on a house in Croydon"
+video:
+  id: "g3kCy07Bd9E"
+  title: "Gutters, Downpipes And Cast Iron On Croydon's Older Roofs: Repair, Replace Or Live With It"
+  uploadDate: 2026-09-17
+  duration: "PT38S"
 faqs:
   - question: "How do I know if my guttering is cast iron?"
     answer: "Tap it. Cast iron gives a dull, dead thud and barely moves; uPVC rings hollow and flexes under a knuckle. Then look at where two lengths meet. Cast iron is bolted through an overlapping socket, so you will see a bolt head and a squeezed line of old mastic, often with a rust stain running from it. uPVC clips together over a rubber seal with a visible expansion gap. Aluminium sits between the two - light like plastic, but with the crisp painted edges and deeper profile of metal."
@@ -18,6 +23,21 @@ faqs:
 ---
 
 Walk along almost any road in Addiscombe, South Norwood or the older streets of South Croydon and look at the gutters rather than the roof. On a good number of those houses the rainwater goods are still the originals - cast iron, hung there when the house was built, and quietly getting on with it a century and a bit later. Cast iron that is kept painted will run for a hundred years or more. uPVC, the thing most people replace it with, is generally reckoned to give twenty to thirty years before it turns brittle and the seals let go. Which is an odd sum when you look at it: the old material routinely outlives its own replacement. Croydon also has twenty-one conservation areas, and in a few of them what hangs off the eaves is not purely a matter of taste. So here is how to tell what you have got, what goes wrong with it, and which of the three honest routes forward applies to your house.
+
+<div class="my-8">
+  <div class="relative w-full overflow-hidden rounded-lg bg-zinc-900" style="aspect-ratio: 16 / 9;">
+    <iframe
+      class="absolute inset-0 h-full w-full"
+      src="https://www.youtube-nocookie.com/embed/g3kCy07Bd9E"
+      title="Gutters, Downpipes And Cast Iron On Croydon's Older Roofs: Repair, Replace Or Live With It"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="mt-3 text-sm text-slate/50">Watch: telling cast iron from plastic at pavement level, and deciding whether to keep it.</p>
+</div>
 
 ## Cast iron, uPVC or aluminium? Telling them apart from the pavement
 

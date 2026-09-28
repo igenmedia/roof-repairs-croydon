@@ -15,9 +15,29 @@ faqs:
     answer: "Weeks, not months. A standard polyethylene sheet starts going brittle in UV within a few weeks, and ninety days is the outside figure the trade uses even for a heavy-duty reinforced cover that has been properly battened rather than weighted with bricks. If sheeting has been up since before Christmas and nobody has given you a date for the permanent repair, the temporary fix has quietly become the repair."
   - question: "Who do I call if the roof belongs to a freeholder or a housing association?"
     answer: "Report it to them first, in writing, the same day, and keep the reference number. A leaseholder who commissions their own emergency roofer without telling the freeholder can end up paying for it personally even when the roof was clearly the freeholder's responsibility. Council and housing association tenants have a statutory repairs route with response targets for emergencies. Protecting your own belongings and stopping the water inside your flat is always yours to do in the meantime."
+video:
+  id: "fe49zhztN_0"
+  title: "Emergency Roof Repairs In Croydon: What To Do In The First Hour"
+  uploadDate: 2026-09-25
+  duration: "PT38S"
 ---
 
 Roofing emergencies in Croydon do not spread themselves evenly through the year. They arrive in clusters, in the hours after a gale or during the first properly heavy rain following a dry spell, and the phones all ring at once. That is the moment when homeowners make expensive decisions quickly. A standard emergency callout fee sits somewhere around £150 to £300 before anyone has touched the roof, out-of-hours hourly rates run roughly double the daytime figure, and a temporary cover that should last weeks is routinely left in place for months. Meanwhile the borough's own geography complicates things: 21 conservation areas, four separate planning authorities across the CR postcodes, and a large stock of converted flats where the roof is not legally yours to fix. This is what the first hour should look like, what it should cost, and how to tell a genuine make-safe from a stalling one.
+
+<div class="my-8">
+  <div class="relative w-full overflow-hidden rounded-lg bg-zinc-900" style="aspect-ratio: 16 / 9;">
+    <iframe
+      class="absolute inset-0 h-full w-full"
+      src="https://www.youtube-nocookie.com/embed/fe49zhztN_0"
+      title="Emergency Roof Repairs In Croydon: What To Do In The First Hour"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="mt-3 text-sm text-slate/50">Watch: buckets, the fuse box and the phone call, in the order they matter.</p>
+</div>
 
 ## The first hour: electrics, people, then water
 

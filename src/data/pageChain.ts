@@ -1,3 +1,5 @@
+import { locations } from "./locations";
+
 // Drives the "Next" link at the foot of every page so that a reader - and a
 // crawler - can walk the entire site without going back to the navigation.
 export const pageChain = [
@@ -12,6 +14,7 @@ export const pageChain = [
   { slug: "/roof-replacement", label: "Roof Replacement" },
   { slug: "/common-roof-problems", label: "Common Roof Problems" },
   { slug: "/roof-repair-cost", label: "Roof Repair Cost Guide" },
+  ...locations.map((l) => ({ slug: `/${l.slug}`, label: `Roof Repairs ${l.name}` })),
   { slug: "/blog", label: "Blog" },
   { slug: "/contact", label: "Contact Us" },
 ];

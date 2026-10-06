@@ -76,7 +76,7 @@ const faqs = [
   {
     question: "Do I need planning permission to repair my roof?",
     answer:
-      "For like-for-like repair, no, anywhere in the borough. It gets more complicated if you are changing the covering or the roof shape, and there are 21 conservation areas in Croydon. The strictest case is the Chatsworth Road conservation area in Addiscombe, where an Article 4 direction has required planning permission for all alterations to the roof of a dwelling house since January 2016. There are further Article 4 directions at The Waldrons, Kenley Aerodrome, Kenley Lane and Hawkhirst Road, and Mitchley Hill and Dunmail Drive.",
+      "For like-for-like repair, no, anywhere in the borough. It gets more complicated if you are changing the covering or the roof shape, and there are 21 conservation areas in Croydon. The strictest case is the Chatsworth Road conservation area in Addiscombe, where an Article 4 direction has required planning permission for all alterations to the roof of a dwelling house since January 2016. There are further Article 4 directions at The Waldrons, Kenley Aerodrome, Kenley Lane and Hawkhirst Road, though those deal with boundary walls, fences and hard surfaces rather than roofs.",
   },
   {
     question: "Do you only work on houses?",
@@ -481,11 +481,11 @@ const videoSchema = {
       </p>
       <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {locations.map((l) => (
-          <div class="rounded-lg border border-slate/15 bg-paper p-4">
-            <h3 class="font-bold text-ink">{l.name}</h3>
+          <a href={`/${l.slug}`} class="group rounded-lg border border-slate/15 bg-paper p-4 hover:border-brand transition-colors">
+            <h3 class="font-bold text-ink group-hover:text-brand-dark">Roof repairs in {l.name}</h3>
             <p class="mt-1 text-xs text-slate/50">{l.postcode} · {l.council}</p>
             <p class="mt-2 text-sm text-slate/75">{l.driveTime}</p>
-          </div>
+          </a>
         ))}
       </div>
     </div>

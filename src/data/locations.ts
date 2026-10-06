@@ -1,10 +1,7 @@
-// Service-area dictionary.
-//
-// Location PAGES are not built yet - the client asked for the homepage and the
-// service pages first. For now this drives the service-area sections (as plain
-// text, so nothing links to a URL that does not exist), the footer list and
-// `areaServed` in the schema. It is written so it can drive /{slug} pages later
-// without any of it needing to be rewritten.
+// Service-area dictionary. Drives the /{slug} location pages (whose prose
+// lives in src/data/towns/), the service-area links on the homepage, service
+// pages and footer, the page chain, and `areaServed` in the schema. Add a town
+// here only once its page file exists, or those links will point at nothing.
 //
 // `council` is the field to be careful with, because the CR postcodes cross
 // four planning authorities and most roofing sites covering this patch get it
@@ -51,7 +48,7 @@ export const locations: Town[] = [
     council: CROYDON,
     councilUrl: CROYDON_URL,
     planningNote:
-      "The Waldrons is a conservation area with an Article 4 direction on numbers 5 to 23, in force since January 2016. Inside that stretch, alterations that would be permitted development anywhere else need an application first.",
+      "The Waldrons is a conservation area. Its Article 4 direction, on numbers 5 to 23, only removes rights over hard surfaces and boundary walls, gates and fences - roof changes there are governed by the conservation area itself rather than by the Article 4.",
     stock:
       "Big detached and semi-detached Victorian villas along the older roads, a lot of them under natural slate with deep gutters and heavy stone or moulded eaves detail, mixed in with Edwardian terraces and later flats along the Brighton Road corridor.",
     hoods: ["The Waldrons", "Croham Road", "Selsdon Road", "Brighton Road", "Croham Hurst"],
@@ -81,7 +78,7 @@ export const locations: Town[] = [
     council: CROYDON,
     councilUrl: CROYDON_URL,
     planningNote:
-      "Sanderstead is Croydon Council for both planning and building control, and the older core around the church is a conservation area, so like-for-like repair is straightforward but anything that changes the look of a roof slope is not.",
+      "Sanderstead is Croydon Council for both planning and building control. Sanderstead Village, around the medieval church, is one of the areas the council began reviewing for conservation area status in late 2025, so check its current status before changing the look of a roof slope there.",
     stock:
       "Substantial interwar semis and detached houses on wide plots, most of them under concrete or clay tile with hipped roofs, generous overhangs and the deep timber fascia and soffit runs that came with that period of building.",
     hoods: ["Limpsfield Road", "Sanderstead Plantation", "Mitchley Hill", "Purley Downs Road", "Hamsey Green"],
@@ -96,7 +93,7 @@ export const locations: Town[] = [
     council: CROYDON,
     councilUrl: CROYDON_URL,
     planningNote:
-      "Croydon Council covers Selsdon. Forestdale, on its eastern edge, is a conservation area covering a planned estate of a much later date than most of the borough's, which means the design intent people are protecting there is 1960s and 1970s, not Victorian.",
+      "Croydon Council covers Selsdon, for both planning and building control. Forestdale, on its eastern edge, is a planned estate of the late 1960s and 1970s rather than a conservation area, so like-for-like roof repair there needs no application.",
     stock:
       "Mostly 1920s and 1930s semis laid out around the Selsdon Park estate roads, plus the flat and shallow-pitched roofs of the Forestdale development, which are a completely different repair proposition to a pitched tile roof.",
     hoods: ["Selsdon Park Road", "Addington Road", "Forestdale", "Selsdon Wood", "Farley Road"],
@@ -126,7 +123,7 @@ export const locations: Town[] = [
     council: CROYDON,
     councilUrl: CROYDON_URL,
     planningNote:
-      "Kenley Aerodrome is a conservation area with its own Article 4 direction, and there are further Article 4 directions covering Kenley Lane and Hawkhirst Road, plus Mitchley Hill and Dunmail Drive nearby. Rights that exist elsewhere in the borough have been removed on those roads.",
+      "Kenley Aerodrome is a conservation area with its own Article 4 direction, and there are further Article 4 directions on Kenley Lane and Hawkhirst Road. Those directions remove rights over gates, fences, walls and accesses rather than roofs, so for roof work it is the conservation area that matters.",
     stock:
       "Detached and semi-detached houses of the interwar and postwar decades on steep plots, plus a scattering of older cottages. Complicated roof shapes are common because so many have been extended up the slope.",
     hoods: ["Kenley Aerodrome", "Kenley Lane", "Hayes Lane", "Godstone Road", "Riddlesdown"],

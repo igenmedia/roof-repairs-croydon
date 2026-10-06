@@ -308,9 +308,9 @@ const serviceSchema = {
         and Sanderstead, and out to Wallington, Caterham, Warlingham and West Wickham.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-2">
-        <span class="rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-white">Croydon</span>
+        <a href="/" class="rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-white hover:bg-slate">Croydon</a>
         {locations.map((l) => (
-          <span class="rounded-full border border-slate/20 bg-paper px-4 py-1.5 text-sm text-slate/80">{l.name}</span>
+          <a href={`/${l.slug}`} class="rounded-full border border-slate/20 bg-paper px-4 py-1.5 text-sm text-slate/80 hover:border-brand hover:text-brand-dark">{l.name}</a>
         ))}
       </div>
     </div>

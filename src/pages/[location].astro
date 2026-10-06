@@ -1,0 +1,14 @@
+---
+// /{town} location pages. Static routes (services, contact and so on) win over
+// this one, so it only ever answers for the slugs returned below.
+import LocationPage from "../layouts/LocationPage.astro";
+import { locationPages } from "../data/locationPages";
+
+export function getStaticPaths() {
+  return locationPages.map((data) => ({ params: { location: data.slug }, props: { data } }));
+}
+
+const { data } = Astro.props;
+---
+
+<LocationPage data={data} />

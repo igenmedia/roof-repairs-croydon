@@ -348,30 +348,9 @@ const year = new Date().getFullYear();
         </div>
       </div>
       <div class="border-t border-steel py-6 text-center text-xs text-steel-light/60 px-4 space-y-2 max-w-4xl mx-auto">
-        <p class="uppercase tracking-wide text-steel-light/80">Who you are dealing with</p>
         <p>
-          This website trades as {business.name} and is owned and run by {business.siteOperator.name},
-          company number {business.siteOperator.companyNumber}, registered office
-          {" "}{business.siteOperator.address}.
+          Your roof is surveyed, priced and repaired by an independent roofing company. The <a href="/terms-and-conditions" class="hover:text-brand-light hover:underline">terms and conditions</a> say who they are and how it works.
         </p>
-        {hasContractor ? (
-          <p>
-            The roofing itself is surveyed, priced and carried out by a separate company:
-            {" "}{business.contractor.name}, company number {business.contractor.companyNumber}. They
-            are who will come to your house and who any agreement you sign is with, not
-            {" "}{business.siteOperator.name}, whose role is running this website and passing your
-            enquiry on. It is all set out in the
-            {" "}<a href="/terms-and-conditions" class="hover:text-brand-light hover:underline">terms and conditions</a>.
-          </p>
-        ) : (
-          <p>
-            The roofing itself is surveyed, priced and carried out by a separate roofing company,
-            not by {business.siteOperator.name}, whose role is running this website and passing your
-            enquiry on. Any agreement you sign is with that roofing company, and you will be told
-            exactly who they are before anything is agreed. It is set out in the
-            {" "}<a href="/terms-and-conditions" class="hover:text-brand-light hover:underline">terms and conditions</a>.
-          </p>
-        )}
         <p class="pt-2 text-steel-light/50">
           &copy; {year} {business.name}. All rights reserved.
           <span class="mx-2">·</span>

@@ -13,9 +13,29 @@ faqs:
     answer: "No. The Party Wall etc. Act 1996 is a private arrangement between neighbouring owners, and the council has no role in serving notices, appointing surveyors or settling disputes. Croydon Council's building control team only becomes involved when the work also needs building regulations approval, such as a loft conversion or a full re-roof, or when a structure has become dangerous."
   - question: "What happens if my neighbour ignores a party wall notice?"
     answer: "Silence is not consent. If your neighbour has not replied in writing within 14 days, the Act treats it as a dispute, and the matter goes to surveyors. You can appoint one surveyor that you both agree on, or each appoint your own, and if your neighbour will not appoint anyone you can appoint a surveyor on their behalf. The surveyors then issue a party wall award setting out how the work is done and who pays for what."
+video:
+  id: "ny9XM6FvTRs"
+  title: "Party Walls And Shared Roofs On Croydon Terraces And Semis"
+  uploadDate: 2026-10-09
+  duration: "PT37S"
 ---
 
 Most Croydon homeowners own a roof that does not stop where their house does. Walk along a road in Selhurst, Thornton Heath or Broad Green and the slates run unbroken from one end of the terrace to the other; go out to Shirley, Selsdon or Coulsdon and each pair of 1930s semis sits under one hipped roof with a single ridge. Most of the borough's older houses are built this way, fixed to next door by a brick party wall that carries on up into the loft. That wall decides a lot: where a leak can travel, how quickly a loft fire spreads, and whether a roofing job needs a formal notice under the Party Wall etc. Act 1996, which has applied across England and Wales since 1997. Here is how the shared roof works, where it lets you down, and how to raise it with next door without a row.
+
+<div class="my-8">
+  <div class="relative w-full overflow-hidden rounded-lg bg-zinc-900" style="aspect-ratio: 16 / 9;">
+    <iframe
+      class="absolute inset-0 h-full w-full"
+      src="https://www.youtube-nocookie.com/embed/ny9XM6FvTRs"
+      title="Party Walls And Shared Roofs On Croydon Terraces And Semis"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="mt-3 text-sm text-slate/50">Watch: where your half of a terrace or semi roof ends, and when next door has to be told.</p>
+</div>
 
 ## Where your half of a shared Croydon roof stops
 

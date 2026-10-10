@@ -8,7 +8,7 @@ faqs:
   - question: "Do I need a licence for scaffolding at my Croydon house?"
     answer: "Only if any part of it stands on the public highway - the pavement, the verge or the road. A scaffold that sits entirely on your own drive or garden needs no licence at all. Where it does touch the highway, Croydon Council issues the licence to the scaffolding company rather than to you, and a neighbourhood safety officer inspects the site before it is granted."
   - question: "How long does it take to get scaffolding licensed and parking suspended in Croydon?"
-    answer: "Allow a fortnight of lead time to be comfortable. The council asks for at least five working days' notice on a parking bay suspension, and the scaffold licence needs a site inspection before it is issued. Roofers who quote a start date without checking whether the paperwork is in are the ones who end up postponing."
+    answer: "Allow three weeks of lead time to be comfortable. The council asks for at least 10 working days' notice on a parking bay suspension, and the scaffold licence needs a site inspection before it is issued. Roofers who quote a start date without checking whether the paperwork is in are the ones who end up postponing."
   - question: "Why is scaffolding quoted separately from the roof work?"
     answer: "Because it is usually a separate company on a separate hire clock. The roofer books it, but the scaffold is priced by lifts, by the number of elevations and by how many weeks it stands - so a job that overruns costs more in scaffold hire even if the roofing price is fixed. Ask whether the figure you have been given covers erection, hire and dismantling, and for how many weeks."
   - question: "Is a ladder ever enough on its own for roof work?"
@@ -39,13 +39,13 @@ Croydon's process is set out on its <a href="https://www.croydon.gov.uk/business
 
 Cherry pickers and mobile scaffolds get their own licence rather than escaping the system. If the machine parks on the road, there is still paperwork.
 
-## Parking: controlled zones, suspensions and five working days
+## Parking: controlled zones, suspensions and ten working days
 
 This is the step that derails more Croydon start dates than weather does. Much of the borough sits inside a controlled parking zone, and the council keeps a published list of them. Where the space outside your house is a marked residents' bay, a scaffold or a skip cannot simply occupy it - the bay has to be formally suspended first, and there is a charge for that.
 
 <img src="/images/blog/parked-cars-terraced-street-croydon.webp" alt="Cars parked nose to tail along a residential terraced street" width="900" height="600" loading="lazy" />
 
-Croydon asks for a minimum of five working days' notice before a suspension starts, and for skips inside a controlled zone the suspension has to be arranged before the skip permit application is completed. In practice that means a chain: suspension first, then the permit or licence, then delivery. A roofer who rings on Monday hoping to start Thursday with a skip on a bay in Addiscombe or South Norwood is going to be disappointed, and so are you.
+Croydon asks for a minimum of 10 working days' notice before a suspension starts, and for skips inside a controlled zone the suspension has to be arranged before the skip permit application is completed. In practice that means a chain: suspension first, then the permit or licence, then delivery. A roofer who rings on Monday hoping to start Thursday with a skip on a bay in Addiscombe or South Norwood is going to be disappointed, and so are you.
 
 The charge is small next to the scaffold. The delay is not. So when you are comparing start dates, ask straight out whether the parking side has been applied for or merely assumed - it is a fair question and it costs nothing to ask.
 

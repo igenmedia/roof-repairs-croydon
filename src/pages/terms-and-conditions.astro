@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { business } from "../data/business";
 
-const REGISTERED_OFFICE = "Dorset House, 5 Church Street, Wimborne, Dorset, BH21 1JH";
+const REGISTERED_OFFICE = "1 Nikis Street, Anthoupoli, 2350 Nicosia, Cyprus";
 const lastUpdated = "23 August 2026";
 // Until the roofing company is confirmed the terms describe the arrangement
 // without naming an entity that has not been verified at Companies House.
@@ -28,7 +28,7 @@ const hasContractor = Boolean(business.contractor.name);
     <h2>Who operates this website</h2>
     <p>
       This website trades as {business.name} and is owned and operated by
-      {" "}{business.siteOperator.name}, a company registered in England and Wales under number
+      {" "}{business.siteOperator.name}, a company registered in the Republic of Cyprus under number
       {" "}{business.siteOperator.companyNumber}, registered office {REGISTERED_OFFICE}.
     </p>
 

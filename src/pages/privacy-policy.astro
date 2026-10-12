@@ -7,7 +7,7 @@ import { business } from "../data/business";
 // registered office is hardcoded here on purpose: it is the REGISTERED address,
 // not the trading address in business.ts, and editing business.ts must never
 // silently change it.
-const REGISTERED_OFFICE = "Dorset House, 5 Church Street, Wimborne, Dorset, BH21 1JH";
+const REGISTERED_OFFICE = "1 Nikis Street, Anthoupoli, 2350 Nicosia, Cyprus";
 const lastUpdated = "23 August 2026";
 ---
 
@@ -30,7 +30,7 @@ const lastUpdated = "23 August 2026";
     <h2>Who controls your data</h2>
     <p>
       This website trades as {business.name}. It is owned and operated by {business.siteOperator.name},
-      company number {business.siteOperator.companyNumber}, registered office {REGISTERED_OFFICE}.
+      registered in Cyprus under number {business.siteOperator.companyNumber}, registered office {REGISTERED_OFFICE}.
       {business.siteOperator.name} is the data controller for information submitted through this
       site.
     </p>

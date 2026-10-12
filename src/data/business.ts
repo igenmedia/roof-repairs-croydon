@@ -55,12 +55,12 @@ export const business = {
   workmanshipGuaranteeYears: 10,
 
   // Two separate entities and the site has to be straight about which is which.
-  // IGEN MEDIA owns and runs this website and passes enquiries on. The roofing
+  // IGN MEDIA owns and runs this website and passes enquiries on. The roofing
   // is quoted for and carried out by the contractor named below.
   siteOperator: {
-    name: "IGEN MEDIA LTD",
-    companyNumber: "14525127",
-    address: "Dorset House, 5 Church Street, Wimborne, Dorset, BH21 1JH",
+    name: "IGN MEDIA LTD",
+    companyNumber: "HE 495763",
+    address: "1 Nikis Street, Anthoupoli, 2350 Nicosia, Cyprus",
   },
 
   // TODO(client): fill in once the trading company is confirmed. While `name`

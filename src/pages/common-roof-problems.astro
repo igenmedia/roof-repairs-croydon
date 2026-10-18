@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { business, img } from "../data/business";
 import ContactForm from "../components/ContactForm.astro";
 import StatsBar from "../components/StatsBar.astro";
+import RealWork from "../components/RealWork.astro";
+import { getRealWork } from "../data/realWork";
 import Reviews from "../components/Reviews.astro";
 import NextPage from "../components/NextPage.astro";
 
@@ -191,6 +193,8 @@ const breadcrumbSchema = {
       </div>
     </div>
   </section>
+
+  <RealWork {...getRealWork("common-roof-problems")} />
 
   <StatsBar />
 

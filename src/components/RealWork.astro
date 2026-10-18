@@ -1,0 +1,45 @@
+---
+// "Real Work" section (project CLAUDE.md, RULE ONE): the business's true story,
+// plus photos of its own jobs once the client supplies them. Every page passes
+// its own wording from src/data/realWork.ts, so no two pages share a sentence.
+//
+// No client photos exist yet, so `images` is optional. Empty, the section lays
+// out as a single centred text column. Do not fill it with stock photos: this
+// section is reserved for the client's own jobs.
+
+import type { RealWorkImage } from "../data/realWork";
+
+interface Props {
+  heading: string;
+  body: string[];
+  images?: RealWorkImage[];
+}
+
+const { heading, body, images = [] } = Astro.props;
+const hasImages = images.length > 0;
+---
+<section class="bg-white border-b border-slate/10" aria-labelledby="real-work-heading">
+  <div
+    class:list={[
+      "mx-auto px-4 sm:px-6 lg:px-8 py-14",
+      hasImages ? "max-w-7xl grid lg:grid-cols-2 gap-12 items-center" : "max-w-3xl",
+    ]}
+  >
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-wide text-brand-dark">The people behind it</p>
+      <h2 id="real-work-heading" class="mt-2 text-3xl sm:text-4xl font-bold text-ink rule">{heading}</h2>
+      {body.map((p, i) => <p class:list={["text-slate/80 text-lg", i === 0 ? "mt-6" : "mt-4"]}>{p}</p>)}
+    </div>
+    {hasImages && (
+      <div class:list={["grid gap-4", images.length >= 2 && "sm:grid-cols-2"]}>
+        {images.map((im) => (
+          <figure>
+            <img src={im.src} alt={im.alt} width={im.width} height={im.height} loading="lazy"
+              class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" />
+            {im.caption && <figcaption class="mt-2 text-sm text-slate/70">{im.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

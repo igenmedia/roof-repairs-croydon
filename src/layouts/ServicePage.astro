@@ -4,6 +4,8 @@ import { business, img } from "../data/business";
 import { locations } from "../data/locations";
 import ContactForm from "../components/ContactForm.astro";
 import StatsBar from "../components/StatsBar.astro";
+import RealWork from "../components/RealWork.astro";
+import { getRealWork } from "../data/realWork";
 import Reviews from "../components/Reviews.astro";
 import Guarantee from "../components/Guarantee.astro";
 import NextPage from "../components/NextPage.astro";
@@ -129,6 +131,8 @@ const serviceSchema = {
       <ContactForm page={`${service.serviceName} (service page)`} title={`Free ${service.serviceName.toLowerCase()} quote`} />
     </div>
   </section>
+
+  <RealWork {...getRealWork(service.slug.slice(1))} />
 
   <StatsBar />
 

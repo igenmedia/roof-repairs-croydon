@@ -4,6 +4,8 @@ import { business, img } from "../data/business";
 import { locations } from "../data/locations";
 import ContactForm from "../components/ContactForm.astro";
 import StatsBar from "../components/StatsBar.astro";
+import RealWork from "../components/RealWork.astro";
+import { getRealWork } from "../data/realWork";
 import NextPage from "../components/NextPage.astro";
 
 const heroPublicId = "roof-repairs-croydon/site/london-residential-street-parked-cars-croydon";
@@ -56,6 +58,8 @@ const days = `${business.openingHours.days[0]} to ${business.openingHours.days[b
       </div>
     </div>
   </section>
+
+  <RealWork {...getRealWork("contact")} />
 
   <StatsBar />
 

@@ -11,6 +11,7 @@ import Reviews from "../components/Reviews.astro";
 import Guarantee from "../components/Guarantee.astro";
 import NextPage from "../components/NextPage.astro";
 import type { LocationPageData } from "../data/locationPages";
+import { subPagesFor, subServices, subSlug } from "../data/subPages";
 
 interface Props { data: LocationPageData }
 const { data } = Astro.props;
@@ -19,6 +20,8 @@ const { data } = Astro.props;
 // what the rest of the site says.
 const town = locations.find((l) => l.slug === data.slug)!;
 const heroImg = img(data.heroPublicId, 1200);
+// Service x town sub-pages for this town (/flat-roof-repairs-{town} etc.).
+const townSubs = subPagesFor(data.slug);
 
 // Steps two and five are written per town. The rest describe how the firm
 // works, which does not change with the postcode.
@@ -158,6 +161,16 @@ const serviceSchema = {
         Those three come up most on {data.name} roofs. Everything else in the services menu is
         covered here as well.
       </p>
+      {townSubs.length > 0 && (
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <span class="text-sm font-semibold text-ink self-center">More services in {data.name}:</span>
+          {townSubs.map((s) => (
+            <a href={`/${subSlug(s.service, s.town)}`} class="rounded-md border border-brand/40 bg-brand/5 px-4 py-2 text-sm font-semibold text-ink hover:border-brand hover:text-brand-dark">
+              {subServices.find((x) => x.key === s.service)!.name} {data.name}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 

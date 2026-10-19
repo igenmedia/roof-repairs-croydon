@@ -29,7 +29,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-caterham",
       text: "Victorian houses in Caterham Valley have tall stacks that take the full force of the wind. Worn pointing, split flaunching and tired lead flashings are where they start to leak.",
     },
     {

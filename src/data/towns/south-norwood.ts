@@ -33,7 +33,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-south-norwood",
       text: "Stacks in South Norwood sit on the party wall and serve two homes. We repoint and reflash them, and agree access with the neighbour first.",
     },
   ],

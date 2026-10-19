@@ -1,0 +1,391 @@
+---
+// Service x town sub-page (/flat-roof-repairs-{town}, /chimney-repairs-{town}).
+// The full depth of the matching service page, localised, plus the town page's
+// attractions, map and service-area cloud. All prose comes from the page's own
+// file in src/data/sub/; the template carries headings and short labels only.
+import Layout from "./Layout.astro";
+import { business, img } from "../data/business";
+import { locations } from "../data/locations";
+import { locationPages } from "../data/locationPages";
+import { serviceLinks } from "./Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import StatsBar from "../components/StatsBar.astro";
+import RealWork from "../components/RealWork.astro";
+import { getRealWork } from "../data/realWork";
+import Reviews from "../components/Reviews.astro";
+import Guarantee from "../components/Guarantee.astro";
+import { getNextPage } from "../data/pageChain";
+import { subServices, subSlug, subPagesOf, type SubPageData } from "../data/subPages";
+
+interface Props { data: SubPageData }
+const { data } = Astro.props;
+
+const town = locations.find((l) => l.slug === data.town)!;
+const townPage = locationPages.find((p) => p.slug === data.town)!;
+const svc = subServices.find((s) => s.key === data.service)!;
+const other = subServices.find((s) => s.key !== data.service)!;
+const slug = subSlug(data.service, data.town);
+const otherSlug = subSlug(other.key, data.town);
+const title = `${svc.name} In ${town.name}`;
+
+// Photos are the site's own stock library, chosen per service. None of them is
+// presented as a job in this town, so the alt text describes the photo only.
+const P = "roof-repairs-croydon/site";
+const pics = data.service === "flat-roof-repairs"
+  ? {
+      hero: { id: `${P}/flat-roof-extension-rear-of-semi-croydon`, alt: "Flat roofed rear extension on the back of a semi-detached house" },
+      local: { id: `${P}/flat-roof-detail-brick-upstand-croydon`, alt: "Flat roof covering turned up against a brick upstand, the junction where most flat roof leaks start" },
+      cross: { id: `${P}/croydon-rooftops-chimney-stacks-skyline`, alt: "Row of rooftops with brick chimney stacks against a grey sky" },
+    }
+  : {
+      hero: { id: `${P}/brick-chimney-pots-slate-roof-croydon`, alt: "Brick chimney stack with clay pots on a slate roof" },
+      local: { id: `${P}/tall-red-chimney-pots-stone-roof-croydon`, alt: "Tall red clay chimney pots on an older roof" },
+      cross: { id: `${P}/completed-rear-extension-flat-roof-croydon`, alt: "Finished flat roof over a single storey rear extension" },
+    };
+const heroImg = img(pics.hero.id, 1200);
+
+// Flat roofs lead on to the same town's chimney page; chimneys lead on to the
+// next stop in the site-wide page chain after this town.
+const next = data.service === "flat-roof-repairs"
+  ? { slug: `/${otherSlug}`, label: `${other.name} ${town.name}` }
+  : getNextPage(`/${data.town}`);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: data.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: business.url },
+    { "@type": "ListItem", position: 2, name: `Roof Repairs ${town.name}`, item: `${business.url}/${town.slug}` },
+    { "@type": "ListItem", position: 3, name: `${svc.name} ${town.name}`, item: `${business.url}/${slug}` },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: title,
+  serviceType: svc.name,
+  provider: { "@type": "RoofingContractor", name: business.name, url: business.url },
+  areaServed: { "@type": "Place", name: `${town.name}, ${town.postcode}` },
+};
+---
+
+<Layout
+  title={data.metaTitle}
+  description={data.metaDescription}
+  heroImage={heroImg}
+  ogImage={heroImg}
+  schema={[faqSchema, breadcrumbSchema, serviceSchema]}
+>
+  <!-- Hero -->
+  <section class="relative bg-ink text-white overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate via-ink to-ink" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <nav aria-label="Breadcrumb" class="text-xs text-steel-light/60">
+          <a href="/" class="hover:text-brand-light">Home</a>
+          <span class="mx-2 text-steel">/</span>
+          <a href={`/${town.slug}`} class="hover:text-brand-light">{town.name}</a>
+          <span class="mx-2 text-steel">/</span>
+          <span class="text-steel-light">{svc.name}</span>
+        </nav>
+        <p class="mt-4 inline-flex items-center rounded-full border border-brand/50 bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-light">
+          {svc.name} · {town.name} {town.postcode}
+        </p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-[1.08]">
+          <a href="/" class="text-white hover:text-brand-light transition-colors">{title}</a>
+        </h1>
+        <h2 class="mt-4 text-xl font-semibold text-brand-light">{data.h2}</h2>
+        <h3 class="mt-3 text-lg font-semibold text-steel-light">{data.h3}</h3>
+        <p class="mt-6 text-lg text-steel-light">{data.intro}</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+            Call {business.phone}
+          </a>
+          <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+            Book A Free Look
+          </a>
+        </div>
+      </div>
+      <div>
+        <img
+          src={heroImg}
+          alt={pics.hero.alt}
+          class="w-full rounded-xl shadow-2xl object-cover aspect-[4/3] ring-1 ring-white/10"
+          width="1200" height="900" fetchpriority="high" loading="eager"
+        />
+      </div>
+    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16">
+      <ContactForm page={`${svc.name}: ${town.name}`} title={`${svc.name} quote in ${town.name}`} />
+    </div>
+  </section>
+
+  <RealWork {...getRealWork(slug)} />
+
+  <StatsBar />
+
+  <!-- Symptoms -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{data.symptomsHeading}</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">{data.symptomsIntro}</p>
+    <div class="mt-10 grid md:grid-cols-2 gap-px bg-slate/15 rounded-xl overflow-hidden border border-slate/15">
+      {data.symptoms.map((s) => (
+        <div class="bg-white p-6">
+          <h3 class="text-base font-bold text-brand-dark">{s.sign}</h3>
+          <p class="mt-2 text-sm text-slate/80">{s.cause}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{data.benefitsHeading}</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data.benefits.map((b) => (
+          <div class="rounded-xl border border-slate/15 bg-paper p-6">
+            <h3 class="text-lg font-bold text-ink">{b.title}</h3>
+            <p class="mt-2 text-sm text-slate/80">{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local conditions -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <img src={img(pics.local.id, 800)} alt={pics.local.alt}
+        class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+    </div>
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">{data.local.h}</h2>
+      <p class="mt-6 text-slate/80">{data.local.p1}</p>
+      <p class="mt-4 text-slate/80">{data.local.p2}</p>
+    </div>
+  </section>
+
+  <!-- Insight stat -->
+  <section class="bg-brand/5 border-y border-brand/20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 text-center">
+      <p class="text-xl sm:text-2xl font-semibold text-ink leading-snug">"{data.insight}"</p>
+      <p class="mt-4 text-sm text-slate/60">From {svc.name.toLowerCase()} enquiries in {town.name} handled by {business.name}</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center rule rule-center">{data.processHeading}</h2>
+      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data.process.map((step, i) => (
+          <div class="rounded-xl border border-steel bg-slate p-6">
+            <div class="text-brand-light text-3xl font-bold">{String(i + 1).padStart(2, "0")}</div>
+            <h3 class="mt-2 text-lg font-semibold text-white">{step.h}</h3>
+            <p class="mt-2 text-steel-light/80 text-sm">{step.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Guarantee />
+
+  <!-- What to look for -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{data.lookForHeading}</h2>
+    <div class="mt-10 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {data.lookFor.map((w) => (
+        <div class="border-t-2 border-brand pt-5">
+          <h3 class="text-lg font-bold text-ink">{w.h}</h3>
+          <p class="mt-2 text-slate/80">{w.p}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{data.comparison.header}</h2>
+      <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">{data.comparison.intro}</p>
+      <div class="mt-10 overflow-x-auto">
+        <table class="w-full text-left border border-slate/15 rounded-lg overflow-hidden bg-white">
+          <thead class="bg-ink text-white">
+            <tr>
+              <th class="p-4 font-semibold" scope="col"><span class="sr-only">Comparison point</span></th>
+              <th class="p-4 font-semibold" scope="col">{data.comparison.proLabel}</th>
+              <th class="p-4 font-semibold" scope="col">{data.comparison.altLabel}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate/10 text-sm">
+            {data.comparison.rows.map((r) => (
+              <tr>
+                <th scope="row" class="p-4 font-semibold text-ink text-left align-top">{r.label}</th>
+                <td class="p-4 text-slate/80 align-top">{r.pro}</td>
+                <td class="p-4 text-slate/80 align-top">{r.alt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-link to the town's other sub-page -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="order-2 lg:order-1">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink rule">{data.crossLink.h}</h2>
+      <p class="mt-6 text-slate/80">
+        {data.crossLink.before}{" "}<a href={`/${otherSlug}`} class="text-brand-dark font-semibold underline hover:no-underline">{data.crossLink.anchor}</a>{data.crossLink.after}
+      </p>
+    </div>
+    <div class="order-1 lg:order-2">
+      <img src={img(pics.cross.id, 800)} alt={pics.cross.alt}
+        class="w-full rounded-xl shadow-lg object-cover aspect-[4/3]" width="800" height="600" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- Cost -->
+  <section class="bg-slate text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center">{data.cost.h}</h2>
+      <p class="mt-6 text-steel-light max-w-3xl mx-auto text-center">{data.cost.intro}</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        {data.cost.factors.map((f) => (
+          <div class="rounded-xl border border-steel bg-ink/40 p-6">
+            <h3 class="text-lg font-semibold text-white">{f.title}</h3>
+            <p class="mt-2 text-sm text-steel-light/80">{f.text}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/roof-repair-cost" class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+          Roof repair prices explained
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{svc.name} in {town.name}: questions</h2>
+    <div class="mt-10 max-w-3xl mx-auto divide-y divide-slate/15">
+      {data.faqs.map((faq) => (
+        <div class="py-6">
+          <h3 class="text-lg font-semibold text-ink">{faq.question}</h3>
+          <p class="mt-2 text-slate/80">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Reviews />
+
+  <!-- Things to do -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">Things to do in {town.name}</h2>
+    <p class="mt-8 text-center text-slate/70 max-w-3xl mx-auto">{data.attractionsIntro}</p>
+    <div class="mt-10 grid sm:grid-cols-3 gap-6">
+      {townPage.attractions.map((a, i) => (
+        <div class="rounded-xl border border-slate/15 bg-white overflow-hidden shadow-sm flex flex-col">
+          <img src={img(a.publicId, 600)} alt={a.alt} class="w-full object-cover aspect-[3/2]"
+            width="600" height="400" loading="lazy" />
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-lg font-bold text-ink">{a.name}</h3>
+            <p class="mt-2 text-sm text-slate/80 flex-1">{data.attractions[i]}</p>
+            <a href={a.mapLink} target="_blank" rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-dark hover:underline">
+              View on Google Maps<span aria-hidden="true">&rarr;</span>
+              <span class="sr-only">- {a.name}</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="bg-white border-y border-slate/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-ink text-center rule rule-center">{town.name} on the map</h2>
+      <p class="mt-6 text-center text-slate/70 max-w-3xl mx-auto">{data.mapText}</p>
+      <div class="mt-8 rounded-xl overflow-hidden border border-slate/15 shadow-sm">
+        <iframe
+          src={`https://maps.google.com/maps?q=${encodeURIComponent(townPage.mapQuery)}&output=embed`}
+          width="100%"
+          height="400"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`Map of ${town.name}`}
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas we cover -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold text-ink">Areas we cover</h2>
+    <p class="mt-6 text-slate/70 max-w-3xl mx-auto">{data.areasText}</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-2">
+      <a href="/" class="rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-white hover:bg-slate">Croydon</a>
+      {locations.map((l) => (
+        <a href={`/${l.slug}`} class:list={["rounded-full px-4 py-1.5 text-sm",
+          l.slug === town.slug ? "bg-brand font-semibold text-white" : "border border-slate/20 bg-white text-slate/80 hover:border-brand hover:text-brand-dark"]}>{l.name}</a>
+      ))}
+    </div>
+    <h3 class="mt-10 text-lg font-bold text-ink">{svc.name} by town</h3>
+    <div class="mt-4 flex flex-wrap justify-center gap-2">
+      {subPagesOf(data.service).map((p) => {
+        const t = locations.find((l) => l.slug === p.town)!;
+        return p.town === data.town ? (
+          <span class="rounded-full bg-brand px-4 py-1.5 text-sm font-semibold text-white" aria-current="page">{svc.name} {t.name}</span>
+        ) : (
+          <a href={`/${subSlug(p.service, p.town)}`} class="rounded-full border border-brand/30 bg-brand/5 px-4 py-1.5 text-sm text-ink hover:border-brand hover:text-brand-dark">{svc.name} {t.name}</a>
+        );
+      })}
+    </div>
+    <div class="mt-6 flex flex-wrap justify-center gap-2">
+      {serviceLinks.map((s) => (
+        <a href={s.slug} class="rounded-full border border-slate/20 bg-paper px-4 py-1.5 text-sm text-slate/80 hover:border-brand hover:text-brand-dark">{s.name}</a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-ink text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">{data.finalH}</h2>
+      <p class="mt-6 text-steel-light max-w-2xl mx-auto">{data.finalP}</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={business.phoneHref} class="inline-flex items-center rounded-md bg-brand px-6 py-3 text-base font-bold text-white shadow-sm hover:bg-brand-light hover:text-ink">
+          Call {business.phone}
+        </a>
+        <a href="/contact" class="inline-flex items-center rounded-md border border-steel-light/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">
+          Book A Free Look
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate border-t border-steel">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-center">
+      <a href={next.slug} class="text-brand-light font-semibold hover:underline">
+        Next: {next.label} &rarr;
+      </a>
+    </div>
+  </section>
+</Layout>

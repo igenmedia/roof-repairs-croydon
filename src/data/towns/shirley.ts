@@ -24,7 +24,7 @@ const page: LocationPageData = {
   featured: [
     {
       name: "Flat Roof Repairs",
-      href: "/flat-roof-repairs",
+      href: "/flat-roof-repairs-shirley",
       text: "Rear extensions and garages are where we find most Shirley leaks. We check the deck, the falls and the wall junction before suggesting felt, EPDM or GRP.",
     },
     {

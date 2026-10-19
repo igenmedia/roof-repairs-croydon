@@ -24,7 +24,7 @@ const page: LocationPageData = {
   featured: [
     {
       name: "Flat Roof Repairs",
-      href: "/flat-roof-repairs",
+      href: "/flat-roof-repairs-kenley",
       text: "The flat section linking an extension to the main house is the most common leak we find in Kenley. Ponding water and frost-split edges usually come first.",
     },
     {

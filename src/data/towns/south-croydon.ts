@@ -30,7 +30,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-south-croydon",
       text: "Tall Victorian stacks with old lead flashings and crumbling flaunching. If water arrives on the chimney breast, this is where we look.",
     },
     {

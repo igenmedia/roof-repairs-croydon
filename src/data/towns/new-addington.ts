@@ -35,7 +35,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-new-addington",
       text: "Many estate houses still have their original stacks. Frost cracks the flaunching on top, and water then gets down past the flashings.",
     },
   ],

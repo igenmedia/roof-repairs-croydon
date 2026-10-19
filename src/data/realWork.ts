@@ -241,6 +241,233 @@ export const realWork: Record<string, RealWorkCopy> = {
       "They think in much the same way and aim for the same things, so you get one clear answer rather than two. And because both know the job, whichever brother you reach can tell you how it's going.",
     ],
   },
+
+  // ---------- Service x town sub-pages (flat roofs, chimneys) ----------
+  "flat-roof-repairs-south-croydon": {
+    heading: "Two brothers and the flat roof behind the villa",
+    body: [
+      "John and Mark run Roof Repairs Croydon, and they're brothers. It's a family firm based here in South Croydon, and the pair have always worked together without falling out. They reckon they do their best work side by side, and a flat roof over a back addition is no different.",
+      "Before a price goes out, they'll often go over the figures together. That leaves you with two people who both know what's happening on your extension. If John's up a ladder when you ring, Mark will usually answer, and you won't have to start the story again.",
+    ],
+  },
+  "chimney-repairs-south-croydon": {
+    heading: "The family firm behind your chimney quote",
+    body: [
+      "Roof Repairs Croydon is a family business on its own patch in South Croydon, run by brothers John and Mark. They quote together, run jobs together and manage the team together, which suits a tall villa stack where there is a fair bit to weigh up.",
+      "They trust each other, so a decision about your chimney isn't left waiting for a meeting. Customers often say dealing with them is refreshing. The brothers put it their own way: they like to think working as a pair makes them twice as good as a typical roofing firm.",
+    ],
+  },
+  "flat-roof-repairs-purley": {
+    heading: "Who you'd deal with about a Purley flat roof",
+    body: [
+      "A lead dormer top and a felt garage roof get the same two people. Roof Repairs Croydon is family-run, and the brothers at the top, John and Mark, have always got on well enough to share the whole business between them.",
+      "They often go through the numbers on a job together, so the price for your flat roof has been thought about twice over. Afterwards both of them know the detail of it. If one brother is out of reach, you'll usually find the other ready to answer.",
+    ],
+  },
+  "chimney-repairs-purley": {
+    heading: "John, Mark and a careful look at your stack",
+    body: [
+      "A chimney on an older clay tile roof rewards a second opinion, and this firm has one built in. Roof Repairs Croydon is run by two brothers, John and Mark, who often price a job side by side and then run it together.",
+      "Their thinking runs along the same lines, so they rarely need long to agree on what a chimney needs. It's a refreshing experience, customers often say: two points of contact, both of whom know your stack, and if one can't pick up, the other usually will.",
+    ],
+  },
+  "flat-roof-repairs-sanderstead": {
+    heading: "Who prices your flat roof up the hill",
+    body: [
+      "A flat roof on an exposed Sanderstead house lives or dies by its edge details, and it helps when two people have checked the plan. The firm is family-run, and the two people checking yours are brothers, John and Mark. They often sit down and work out a price side by side.",
+      "Between them they also run the jobs and the team, so either brother can tell you how your roof is going. If John can't answer, Mark usually will. Customers say that's a refreshing way to deal with a roofer.",
+    ],
+  },
+  "chimney-repairs-sanderstead": {
+    heading: "Brothers on the job, not just on the phone",
+    body: [
+      "Chimney work on high, windy ground shouldn't come down to guesswork. At Roof Repairs Croydon it usually comes down to two brothers, John and Mark, who go through the figures together before any quote leaves the family firm.",
+      "They've always worked as a pair and never fallen out. Because they trust one another, nobody sits waiting on a second opinion. Their own view, given with a grin, is that it makes them twice the roofers a typical firm manages. You can make your own mind up about that.",
+    ],
+  },
+  "flat-roof-repairs-selsdon": {
+    heading: "A family firm for flat and low roofs",
+    body: [
+      "Whether it's a Forestdale garage or an extension behind a semi on Selsdon Park Road, the people behind the quote don't change: John and Mark, the brothers whose family business this is.",
+      "Jobs are often run by both of them, and they share the running of the team. You get two contacts who each know where your roof is up to, so a missed call to one usually means a quick answer from the other.",
+    ],
+  },
+  "chimney-repairs-selsdon": {
+    heading: "The two brothers who'll look at your chimney",
+    body: [
+      "Roof Repairs Croydon is family-run. Brothers John and Mark own it, and they reckon they've always done their best work as a pair, which is handy, because they've never had the falling-out people expect from brothers in business.",
+      "On a chimney under Selsdon's trees, that means one of them is rarely working it out alone. They quote and decide together without fuss, and customers often say the whole thing feels refreshing compared with the usual roofer.",
+    ],
+  },
+  "flat-roof-repairs-coulsdon": {
+    heading: "Who looks at your flat roof",
+    body: [
+      "A Coulsdon extension or garage roof is usually a small job, and it is still priced by the people who own the firm. Roof Repairs Croydon is a family business run by John and Mark, who are brothers and have always worked side by side.",
+      "They often sit down with the numbers together before a quote goes out. Afterwards you have two names to ring, and whichever brother answers will know where your roof is up to.",
+    ],
+  },
+  "chimney-repairs-coulsdon": {
+    heading: "Brothers, not a call centre",
+    body: [
+      "Chimney work on a pair of semis can mean talking to the people next door as well as you. It helps that this firm has two people at the top who both know each job. John and Mark run Roof Repairs Croydon together, and the business is family through and through.",
+      "They trust each other's judgement, so a decision about your stack does not sit waiting for a meeting. Customers often say dealing with the two of them is refreshing.",
+    ],
+  },
+  "flat-roof-repairs-kenley": {
+    heading: "Two brothers, one plan for a tricky roof",
+    body: [
+      "A Kenley flat roof squeezed between two other roof levels is the sort of job where a second opinion is useful before the price is fixed. At Roof Repairs Croydon, the second opinion is built in. The firm is run by brothers John and Mark, who tend to work quotes out together.",
+      "They think along the same lines, so it is a quick conversation rather than an argument. They say, with a grin, that it makes them twice as good as an ordinary roofing firm.",
+    ],
+  },
+  "chimney-repairs-kenley": {
+    heading: "A family firm behind the scaffold",
+    body: [
+      "Roof Repairs Croydon is owned and run by two brothers, John and Mark. They have never fallen out over the business, and they will tell you they do their best work as a pair.",
+      "On a chimney that needs scaffold, that means the job is planned, priced and run by people who share the same aims. If you cannot get hold of one of them while the work is on, the other usually picks up and knows the detail.",
+    ],
+  },
+  "flat-roof-repairs-addiscombe": {
+    heading: "Two people who both know your back roof",
+    body: [
+      "A flat roof tucked behind an Addiscombe terrace is easy to lose track of, especially when several owners have a say. The family behind Roof Repairs Croydon is two brothers, John and Mark, and on a job like this they usually work out the price together.",
+      "That gives you two points of contact, and both of them know where things stand. Ring while one of them is busy on a roof and the other can usually pick up the thread. Customers tell them it makes a refreshing change.",
+    ],
+  },
+  "chimney-repairs-addiscombe": {
+    heading: "Brothers who trust each other's call",
+    body: [
+      "Chimney work in a conservation area needs decisions made carefully and without fuss. John and Mark, the brothers behind Roof Repairs Croydon, have always worked together and have never fallen out over it. They trust each other's judgement, so those decisions come easily between them.",
+      "They run jobs and manage the team as a pair, so there is no handover where details go missing. They like to think the pairing makes them about twice the firm a typical roofer is. You can judge that one for yourself.",
+    ],
+  },
+  "flat-roof-repairs-shirley": {
+    heading: "Same job, two brothers on it",
+    body: [
+      "An extension roof under trees is a fairly ordinary repair, and it still gets the attention of the people who own the business. Roof Repairs Croydon is family-run. The two brothers in charge, John and Mark, often sit down with the numbers on a quote together.",
+      "Once the work is booked you have two people to call, not one. Both keep up with how your roof is getting on, so if one doesn't pick up, the other usually will. People often tell them that's refreshing.",
+    ],
+  },
+  "chimney-repairs-shirley": {
+    heading: "Who you'll be dealing with",
+    body: [
+      "John and Mark are brothers, and the family firm they run is Roof Repairs Croydon. They reckon the business runs best with both of them on it. On a shared chimney, where next door may want a say too, it helps that each of them knows the plan.",
+      "They price jobs between them, run the work between them and look after the team the same way. Because they trust each other, choices about your stack get made without a meeting. If one brother is busy, the other can usually help.",
+    ],
+  },
+  "flat-roof-repairs-thornton-heath": {
+    heading: "Two brothers, one look at your back roof",
+    body: [
+      "A Thornton Heath back roof with years of patches on it needs somebody to decide, plainly, whether it gets repaired or stripped. At Roof Repairs Croydon the owners make that call. John and Mark are brothers, the business is a family one, and they have always worked together without falling out.",
+      "More often than not they go through the figures as a pair before a price reaches you. Once the job is booked you have two people to ring, and both know it. Should John be tied up on a roof, it is usually Mark who answers instead.",
+    ],
+  },
+  "chimney-repairs-thornton-heath": {
+    heading: "A shared stack, and two people who share the work",
+    body: [
+      "A chimney on a party wall belongs to two households, so it helps when the firm doing it is run by two people as well. John and Mark are the brothers behind Roof Repairs Croydon. Quoting, running the work and looking after the team are all things they handle jointly.",
+      "Because they trust each other, decisions about your stack happen quickly and without fuss. Their own view, offered with a smile, is that the arrangement makes them twice the roofers a normal firm would be. Customers more often just tell them it was a refreshing way to get a job done.",
+    ],
+  },
+  "flat-roof-repairs-norbury": {
+    heading: "Old roof, new roof, two brothers",
+    body: [
+      "A Norbury house often has two roofs of very different ages, so the person you speak to needs to keep both in mind. John and Mark, the brothers whose family firm this is, both keep track of every job on the books.",
+      "They tend to work through a quote together and get to the same answer without much debate. So a question about your flat roof never has to wait for one particular person. Whichever brother picks up can tell you where the job is up to.",
+    ],
+  },
+  "chimney-repairs-norbury": {
+    heading: "Who looks after your chimney job",
+    body: [
+      "Behind any chimney price we send to an SW16 address are two brothers, John and Mark, who own and run Roof Repairs Croydon. Working side by side is how they have always done it, and they reckon it is when they do their best work.",
+      "They check the numbers together, then keep an eye on the job together. People often say it is a refreshing change to have two contacts who both know what is happening on their roof. Miss one of them and the other will usually answer.",
+    ],
+  },
+  "flat-roof-repairs-south-norwood": {
+    heading: "Two brothers on one terrace roof",
+    body: [
+      "A flat roof at the back of a South Norwood terrace can mean a chat with the neighbours as well as you. Roof Repairs Croydon is a family firm run by John and Mark, two brothers who have always worked side by side and never fallen out over it.",
+      "They often look over a quote together and run the job between them, so either one can answer when you ring. If John is up a ladder, Mark will usually pick up and already know where your extension roof stands.",
+    ],
+  },
+  "chimney-repairs-south-norwood": {
+    heading: "Shared stacks, shared thinking",
+    body: [
+      "A chimney on a party wall has two owners, and this firm has two people at the top as well. John and Mark are brothers who run Roof Repairs Croydon as a family business, and they say they work at their best as a pair.",
+      "They trust each other, so a decision on your stack does not get stuck waiting for a second opinion. Customers often describe dealing with them as refreshing. The brothers reckon it makes them twice as good as a usual roofing firm, though they would say that.",
+    ],
+  },
+  "flat-roof-repairs-new-addington": {
+    heading: "Plain answers from the people who own the firm",
+    body: [
+      "On a garage or extension roof up on the plateau, you want to know who you are dealing with. It is John and Mark, brothers who run Roof Repairs Croydon together. Family-run from the start, and they have never had a falling-out over the work.",
+      "They often go through the numbers side by side before a price reaches you, and they manage the team together on site. That gives you two contacts who both know your roof, so a missed call to one usually gets answered by the other.",
+    ],
+  },
+  "chimney-repairs-new-addington": {
+    heading: "Two names to call about your chimney",
+    body: [
+      "Before a cold snap is not the time to chase a roofer who never rings back. Roof Repairs Croydon is a family business owned by two brothers, John and Mark, and both of them keep up with every chimney job the firm takes on.",
+      "They quote together, run the work together and back each other's calls without fuss. People who use them often say that makes a refreshing change. Whichever brother answers the phone, he will know what is happening with your stack.",
+    ],
+  },
+  "flat-roof-repairs-wallington": {
+    heading: "Two brothers and a spirit level",
+    body: [
+      "Working out why a flat roof keeps holding water is a patient job, and it goes better with two people thinking about it. At Roof Repairs Croydon those two are John and Mark. They are brothers, the firm is their family's, and they have always worked alongside each other without a single falling-out.",
+      "Quite often they look at the figures for a re-cover together and settle the price between them. Once the work is booked you can ring either brother about it, and you will not have to explain the puddle twice. People tend to tell us that is a refreshing way to be looked after.",
+    ],
+  },
+  "chimney-repairs-wallington": {
+    heading: "Two people who know your stack",
+    body: [
+      "A chimney shared with the house next door can mean more phone calls than most roof jobs. That is easier when the firm has two people in charge who both follow it. John and Mark own Roof Repairs Croydon, a family concern, and they are brothers who say they do their best work as a team.",
+      "Between them they quote the job, keep an eye on the team and see the repair through to the end. If John is up a ladder when you call, Mark will normally answer, and the other way round. They trust each other, so a decision does not wait for both to be in one room.",
+    ],
+  },
+  "flat-roof-repairs-caterham": {
+    heading: "Hill or Valley, the same two names",
+    body: [
+      "A flat roof on a sloping Caterham plot raises awkward questions about access and abutments, and those are better talked through than guessed. Here that conversation happens between John and Mark, brothers, and the family behind Roof Repairs Croydon. They have never fallen out over it.",
+      "They tend to go through a quote side by side and agree the numbers before you see them. Both of them keep up with every job, so whoever you reach can answer you. Half in jest, they like to think that makes them twice the roofers a one-boss firm would be.",
+    ],
+  },
+  "chimney-repairs-caterham": {
+    heading: "A firm with two people at the top",
+    body: [
+      "A tall stack with scaffold built up a slope is the sort of job that needs someone keeping track of it from start to finish. At Roof Repairs Croydon there are two such people. The brothers John and Mark own it between them, it has stayed in the family, and both say they work at their best side by side.",
+      "They often run a chimney job as a pair and look after the team between them, so the details never rest with one person alone. Customers often say that makes dealing with them refreshing. Miss one brother and the other usually picks up, already knowing where your stack is up to.",
+    ],
+  },
+  "flat-roof-repairs-warlingham": {
+    heading: "Two brothers on one flat roof price",
+    body: [
+      "A big extension roof with edges facing open fields is worth a second pair of eyes before anyone settles on a figure. The firm belongs to John and Mark, two brothers who keep it a family business, and they tend to sit down together over a quote and check the figures between them.",
+      "Once the work starts, they run the job and manage the team as a pair. That gives you two people to call, and either one can tell you what is going on with your roof. If one is up a ladder when you ring, you will usually get the other.",
+    ],
+  },
+  "chimney-repairs-warlingham": {
+    heading: "John and Mark, and how your chimney gets decided",
+    body: [
+      "When a house has two or three stacks, choosing which to tackle now is a judgement call. The two brothers who own Roof Repairs Croydon, John and Mark, trust each other's view, so those calls get made quickly rather than going back and forth.",
+      "They have always worked together without a falling-out, and they reckon they are at their best as a pair. Customers often tell them that dealing with the pair of them is refreshing. The brothers like to think, with a smile, that having two of them makes the firm twice as good as a typical roofer.",
+    ],
+  },
+  "flat-roof-repairs-west-wickham": {
+    heading: "A family firm, two names, one job",
+    body: [
+      "Flat roof repairs are often small and fiddly, and it helps to know exactly who is responsible. Here that is John and Mark, a pair of brothers running a family firm, who manage the team and see each job through together.",
+      "Because both of them know your job, you are rarely left waiting for one person to come back to you. Ring either and you will usually get an answer. Customers often say that working with them is refreshing.",
+    ],
+  },
+  "chimney-repairs-west-wickham": {
+    heading: "Who prices your chimney",
+    body: [
+      "Chimney quotes on a semi can get complicated once next door's half is involved. At Roof Repairs Croydon the figures are usually worked through by both owners, John and Mark, brothers who run the place as a family concern and always have done together.",
+      "In all that time there has been no falling-out, and they agree more often than not, so decisions about your stack come easily between them. You also get two people to contact, each up to speed on the job. If one is tied up, try the other, because both will know where things stand.",
+    ],
+  },
+  // ---------- end sub-pages ----------
 };
 
 /** Throws, failing the build, if a page has no Real Work copy. */

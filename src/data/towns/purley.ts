@@ -29,7 +29,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-purley",
       text: "Big Edwardian and interwar houses in Purley often have three or four stacks. Tired flaunching and failed lead aprons cause more of our call-outs here than slipped tiles do.",
     },
     {

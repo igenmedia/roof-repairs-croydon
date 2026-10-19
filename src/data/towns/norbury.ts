@@ -28,12 +28,12 @@ const page: LocationPageData = {
     },
     {
       name: "Flat Roof Repairs",
-      href: "/flat-roof-repairs",
+      href: "/flat-roof-repairs-norbury",
       text: "The rear flat roofs here are newer than the house, and usually fail at the trims, the outlet or the joint with the main wall. That is where we look first.",
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-norbury",
       text: "Tall Edwardian stacks with worn pointing and tired flashings let water in beside the chimney breast. We repoint, reflash or reduce, depending on what the stack needs.",
     },
   ],

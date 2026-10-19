@@ -29,7 +29,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-addiscombe",
       text: "Victorian stacks here often carry four or more pots and a century of patch-pointing. Lead and flaunching get repaired to match the original, which matters if you're inside the conservation area.",
     },
     {

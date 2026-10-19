@@ -1,0 +1,13 @@
+---
+// /flat-roof-repairs-{town} sub-pages. Prose lives in src/data/sub/flat-roof-repairs-{town}.ts.
+import SubPage from "../layouts/SubPage.astro";
+import { subPagesOf } from "../data/subPages";
+
+export function getStaticPaths() {
+  return subPagesOf("flat-roof-repairs").map((data) => ({ params: { town: data.town }, props: { data } }));
+}
+
+const { data } = Astro.props;
+---
+
+<SubPage data={data} />

@@ -23,7 +23,7 @@ const page: LocationPageData = {
   featured: [
     {
       name: "Flat Roof Repairs",
-      href: "/flat-roof-repairs",
+      href: "/flat-roof-repairs-thornton-heath",
       text: "The felt or asphalt over the back addition is the roof we work on most in CR7. We cut back to sound material rather than sealing over another layer.",
     },
     {

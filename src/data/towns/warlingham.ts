@@ -34,7 +34,7 @@ const page: LocationPageData = {
     },
     {
       name: "Chimney Repairs",
-      href: "/chimney-repairs",
+      href: "/chimney-repairs-warlingham",
       text: "The bigger houses here often have two or three stacks standing in the wind. Cracked flaunching and lifted flashings let driven rain run straight down into the rooms below.",
     },
   ],

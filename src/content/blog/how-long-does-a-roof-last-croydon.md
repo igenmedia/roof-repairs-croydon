@@ -3,7 +3,7 @@ title: "How Long Does A Roof Last In Croydon? Every Layer Runs On Its Own Clock"
 description: "Slate, clay, concrete, felt, rubber and lead all wear at different rates, and the nails often give out first. What that means for each era of Croydon house."
 pubDate: 2026-10-20
 heroImage: "/images/blog/mossy-slate-roof-slope-ageing-croydon.webp"
-heroImageAlt: "Old dark slate roof slope thick with moss and fallen leaves beside tall trees"
+heroImageAlt: "Close-up of weathered grey slates streaked with lichen, with a clump of moss growing in one joint"
 faqs:
   - question: "Which roofing material lasts longest on a Croydon house?"
     answer: "Natural slate and good clay plain tiles last longest. Both regularly reach a century, and sound Welsh slate often goes well past it. Concrete interlocking tiles are usually given 50 to 60 years. On flat roofs, EPDM rubber and GRP fibreglass are commonly expected to manage 25 to 30 years or more, against roughly 10 to 20 for the old built-up felt. On most pitched roofs, though, the nails, battens and underlay decide when the job needs doing, not the covering."
@@ -21,7 +21,7 @@ There's no single answer to how long a roof lasts, because a roof isn't one thin
 
 Think of the roof as layers. On top sits the covering, the slates or tiles or membrane you can see from the street. Under that are the fixings, nails and clips. Then the battens, the timber strips the tiles hang on. Then the underlay, if there is one. Round the edges and junctions sit the mortar on the ridge and verges and the lead at the chimney, walls and valleys.
 
-<img src="/images/blog/mossy-slate-roof-slope-ageing-croydon.webp" alt="Old dark slate roof slope thick with moss and fallen leaves beside tall trees" width="900" height="600" loading="lazy" />
+<img src="/images/blog/mossy-slate-roof-slope-ageing-croydon.webp" alt="Close-up of weathered grey slates streaked with lichen, with a clump of moss growing in one joint" width="900" height="600" loading="lazy" />
 
 Each layer has a lifespan, and the roof as a whole lasts only as long as the weakest one that matters. Mortar and flashings can be renewed on their own without touching the rest. Nails and battens can't. Once they've gone across a whole slope, every slate or tile has to come off to put them right, and at that point you're paying for most of a new roof whether the covering is worn out or not. That's why so many Croydon roofs get stripped while their slates are still good, and why a proper [roof replacement in Croydon](/roof-replacement) usually saves and relays the best of the old covering where it can.
 

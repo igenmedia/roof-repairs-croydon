@@ -1257,7 +1257,7 @@ export const services: ServiceData[] = [
     h2: "Has your roof genuinely reached the end, or is it being sold to you?",
     h3: "Full strip and re-cover on Victorian, interwar and postwar roofs across Croydon",
     heroPublicId: `${P}/new-concrete-roof-tiles-croydon-replacement`,
-    heroAlt: "New concrete roof tiles laid on a replacement roof in Croydon",
+    heroAlt: "New dark grey interlocking roof tiles laid in even courses on a replacement roof",
     intro:
       "This is the largest thing most people ever spend on the outside of their house, and it is the job with the widest gap between what is necessary and what is sold. So the starting position here is scepticism. A roof needs replacing when the fixings have failed across the whole slope, when the timber below has gone, or when you have already paid for the same repair three times. Not because it looks tired from the pavement.",
     insight:

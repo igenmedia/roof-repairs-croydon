@@ -3,7 +3,7 @@ title: "Roofing Guarantees In Croydon: Workmanship, Manufacturer And Insurance-B
 description: "Three kinds of roofing guarantee, who stands behind each, what quietly voids them, and what happens if your Croydon roofer closes down or you sell the house."
 pubDate: 2026-10-16
 heroImage: "/images/roof-repairs-croydon-site-new-concrete-roof-tiles-croydon-replacement-w600.webp"
-heroImageAlt: "Close-up of rows of new grey interlocking roof tiles"
+heroImageAlt: "Close-up of new dark grey interlocking roof tiles laid in neat rows"
 faqs:
   - question: "What is the difference between a workmanship guarantee and an insurance-backed guarantee?"
     answer: "A workmanship guarantee is the roofer's own promise to come back and fix faults in their work, so it is only as good as the firm. An insurance-backed guarantee is a policy, bought for your job and registered with an insurer, that pays for those faults to be put right if the roofer has stopped trading and cannot honour its promise. In most cases it does not pay out while the original firm is still in business."
@@ -21,7 +21,7 @@ Most roofing quotes in Croydon now mention a guarantee somewhere near the bottom
 
 Whose name is at the bottom? Ask that of any guarantee you are offered and most of the confusion clears.
 
-<img src="/images/roof-repairs-croydon-site-new-concrete-roof-tiles-croydon-replacement-w600.webp" alt="Close-up of rows of new grey interlocking roof tiles" width="600" height="397" loading="lazy" />
+<img src="/images/roof-repairs-croydon-site-new-concrete-roof-tiles-croydon-replacement-w600.webp" alt="Close-up of new dark grey interlocking roof tiles laid in neat rows" width="600" height="397" loading="lazy" />
 
 A workmanship guarantee is signed by the roofing firm. It promises that if their work fails, they will come back and fix it. A manufacturer warranty is signed by whoever made the slates, tiles, felt, lead alternative or flat roof membrane, and it covers the product being faulty, not the way it was fitted. An insurance-backed guarantee is signed by an insurer or a guarantee provider, and it covers the workmanship promise if the firm is no longer around to keep it. On a big job such as a full [roof replacement in Croydon](/roof-replacement) you may be handed all three. On a small repair, such as refixing slipped slates, you will normally get a workmanship guarantee and nothing else, and that is fine provided you know which one you have.
 

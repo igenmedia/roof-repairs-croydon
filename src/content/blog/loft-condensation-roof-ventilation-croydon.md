@@ -4,6 +4,11 @@ description: "Why Croydon lofts drip and go black with mould, house era by house
 pubDate: 2026-10-22
 heroImage: "/images/roof-repairs-croydon-site-loft-roof-timbers-survey-croydon-w800.webp"
 heroImageAlt: "Large roof space with dark timber trusses overhead and stacks of new sawn timber laid on the floor"
+video:
+  id: "Wo_jK5ZyHaM"
+  title: "Loft Condensation In Croydon: Why Roof Spaces Drip And Grow Mould"
+  uploadDate: 2026-10-23
+  duration: "PT33S"
 faqs:
   - question: "Is a bit of condensation in the loft normal in winter?"
     answer: "A light mist on the underside of the felt after a frosty night, gone by lunchtime, is common and does little harm. It becomes a problem when it is there most mornings, when it drips, when the insulation feels damp, or when black spotting starts to appear on the rafters and the backs of the boards. That pattern means more moisture is getting into the loft than the ventilation can carry away."
@@ -16,6 +21,21 @@ faqs:
 ---
 
 Most of Croydon's houses were built to have cold, draughty, empty lofts. A Victorian terrace in Selhurst or a 1930s semi in Shirley had a coal fire in nearly every room pulling air up the chimneys, single glazing that leaked air at every frame, and a roof space with nothing in it but water tanks and spiders. Air poured through the slates and tiles and kept the timbers dry. Almost none of that still applies. The fires are gone, the windows are sealed, and the loft floor now carries 270mm of insulation, which is the depth the Energy Saving Trust recommends. Meanwhile a family of four puts something like ten litres of water into the air every day just by cooking, washing, showering and breathing. That's the figure usually quoted, anyway. When that warm, wet air finds its way into a cold roof space and meets felt or slate chilled by a clear night, it turns back into water. That is loft condensation, and in Croydon it shows up differently depending on when your house was built and what has been done to it since.
+
+<div class="my-8">
+  <div class="relative w-full overflow-hidden rounded-lg bg-zinc-900" style="aspect-ratio: 16 / 9;">
+    <iframe
+      class="absolute inset-0 h-full w-full"
+      src="https://www.youtube-nocookie.com/embed/Wo_jK5ZyHaM"
+      title="Loft Condensation In Croydon: Why Roof Spaces Drip And Grow Mould"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="mt-3 text-sm text-slate/50">Watch: why Croydon lofts that stayed dry for a century start dripping once they're insulated and sealed up.</p>
+</div>
 
 ## Why loft condensation turns up in Croydon houses that never had it
 

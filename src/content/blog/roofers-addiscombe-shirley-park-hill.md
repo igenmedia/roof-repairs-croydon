@@ -4,6 +4,11 @@ description: "Roofers in Addiscombe, Shirley and Park Hill on East India Estate 
 pubDate: 2026-11-05
 heroImage: "/images/roof-repairs-croydon-loc-addiscombe-victorian-terrace-welsh-slate-roofs-w1200.webp"
 heroImageAlt: "Victorian red brick building with a pyramid slate roof and weathervane beside a ribbed grey roof under cloud"
+video:
+  id: "Agm0afchjs8"
+  title: "Roofers In Addiscombe, Shirley And Park Hill: Roofs, Rules And Prices Street By Street"
+  uploadDate: 2026-11-06
+  duration: "PT37S"
 faqs:
   - question: "Is Addiscombe a conservation area?"
     answer: "Part of it is. The East India Estate conservation area covers the grid of Victorian roads laid out on the old East India Company college grounds after 1861, including Canning Road, Clyde Road, Elgin Road, Havelock Road and Outram Road. Croydon Council designated it in March 2008. The rest of Addiscombe is not a conservation area, although Inglis Road, Nicholson Road, part of Grant Road and the western end of Bingham Road are local heritage areas."
@@ -16,6 +21,21 @@ faqs:
 ---
 
 Walk out of East Croydon station towards Lloyd Park and on to Shirley Hills, and in about three miles you go under most of the roof types this borough has. Natural slate on villas built after 1861 on the site of a military college. Flat roofs on a 1960s estate whose builder thought the Victorian houses it replaced were obsolete. Arts and Crafts gables with half-timbering. Then street after street of 1930s semis, rising towards the pine woods on the hill. Anyone searching for roofers in Addiscombe, Shirley and Park Hill is really asking about four or five different kinds of building. The planning rules also change every few hundred yards: one street needs permission for any roof alteration, the next is a conservation area without that rule, and further on there are no restrictions at all. This guide follows that route from west to east, one stop at a time, and ends with rough 2026 prices.
+
+<div class="my-8">
+  <div class="relative w-full overflow-hidden rounded-lg bg-zinc-900" style="aspect-ratio: 16 / 9;">
+    <iframe
+      class="absolute inset-0 h-full w-full"
+      src="https://www.youtube-nocookie.com/embed/Agm0afchjs8"
+      title="Roofers In Addiscombe, Shirley And Park Hill: Roofs, Rules And Prices Street By Street"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <p class="mt-3 text-sm text-slate/50">Watch: the roofs of Addiscombe, Shirley and Park Hill street by street, with the planning rules and prices that go with each.</p>
+</div>
 
 ## Roofers in Addiscombe, Shirley and Park Hill: why the route matters
 
